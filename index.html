@@ -2,7 +2,7 @@
 
 <html lang="uk">
 <head>
-<link rel="icon" href="favicon.png" type="image/png">
+<link rel="icon" href="favicon.png.jng" type="image/png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#000">
@@ -1435,30 +1435,50 @@ function sendOrder(){
   let orderBtn=document.querySelector(".order-btn");
   if(orderBtn){orderBtn.innerText="⏳ Відправляємо...";orderBtn.disabled=true;}
 
-  function onSuccess(){
-    let oh={date:new Date().toLocaleString("uk-UA"),items:[...cart],sum:fin};
-    orderHist.unshift(oh);if(orderHist.length>20)orderHist=orderHist.slice(0,20);
-    cart=[];discount=0;updCount();sv();
-    try{document.getElementById("promo-ok").style.display="none";}catch(e){}
-    try{document.getElementById("promo-inp").value="";}catch(e){}
-    launchConf();
-    toast("🎉 Замовлення прийнято!");
-    sending=false;
-    setTimeout(()=>closeCart(),1200);
+ function onSuccess(){
+  let oh={date:new Date().toLocaleString("uk-UA"),items:[...cart],sum:fin};
+  orderHist.unshift(oh);if(orderHist.length>20)orderHist=orderHist.slice(0,20);
+  let delivHtml='';
+  if(delMode==='pick'){
+    let pt=document.querySelector('input[name="pp"]:checked');
+    delivHtml=`📍 <b>Самовивіз</b><br>${pt?pt.value:''}<br>🕐 ${selTime}`;
+  } else {
+    let city=document.getElementById('city').value.trim();
+    let branch=document.getElementById('branch').value.trim();
+    delivHtml=`🚚 <b>Нова пошта</b><br>${city?city:'—'}<br>${branch?branch:'—'}`;
   }
-
+  let contactHtml=`👤 ${n}<br>📞 ${ph}`;
+  let snapItems=[...cart];
+  let snapTotal=fin;
+  cart=[];discount=0;updCount();sv();
+  try{document.getElementById("promo-ok").style.display="none";}catch(e){}
+  try{document.getElementById("promo-inp").value="";}catch(e){}
+  launchConf();
+  sending=false;
+  showSuccess(snapItems, snapTotal, delivHtml, contactHtml);
+}
   function onFail(){
-    window.open(tgUrl);
-    let oh={date:new Date().toLocaleString("uk-UA"),items:[...cart],sum:fin};
-    orderHist.unshift(oh);if(orderHist.length>20)orderHist=orderHist.slice(0,20);
-    cart=[];discount=0;updCount();sv();
-    try{document.getElementById("promo-ok").style.display="none";}catch(e){}
-    try{document.getElementById("promo-inp").value="";}catch(e){}
-    launchConf();
-    toast("✔ Відкрито Telegram — надішліть повідомлення!");
-    sending=false;
-    setTimeout(()=>closeCart(),1800);
+  let oh={date:new Date().toLocaleString("uk-UA"),items:[...cart],sum:fin};
+  orderHist.unshift(oh);if(orderHist.length>20)orderHist=orderHist.slice(0,20);
+  let delivHtml='';
+  if(delMode==='pick'){
+    let pt=document.querySelector('input[name="pp"]:checked');
+    delivHtml=`📍 <b>Самовивіз</b><br>${pt?pt.value:''}<br>🕐 ${selTime}`;
+  } else {
+    let city=document.getElementById('city').value.trim();
+    let branch=document.getElementById('branch').value.trim();
+    delivHtml=`🚚 <b>Нова пошта</b><br>${city?city:'—'}<br>${branch?branch:'—'}`;
   }
+  let contactHtml=`👤 ${n}<br>📞 ${ph}`;
+  let snapItems=[...cart];
+  let snapTotal=fin;
+  cart=[];discount=0;updCount();sv();
+  try{document.getElementById("promo-ok").style.display="none";}catch(e){}
+  try{document.getElementById("promo-inp").value="";}catch(e){}
+  launchConf();
+  sending=false;
+  showSuccess(snapItems, snapTotal, delivHtml, contactHtml);
+}
 
   function resetBtn(){
     if(orderBtn){orderBtn.innerText="Оформити замовлення";orderBtn.disabled=false;}
@@ -1486,6 +1506,26 @@ function sendOrder(){
   });
 }
 
+function showSuccess(items, total, deliveryHtml, contactHtml){
+  let el=document.getElementById('sc-items');
+  el.innerHTML=items.map(it=>`
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--bg4)">
+      <span style="font-size:13px;color:var(--t2);flex:1;padding-right:8px">${it.n} x${it.q}</span>
+      <span style="font-size:13px;font-weight:600;color:var(--green);white-space:nowrap">${it.p*it.q} грн</span>
+    </div>
+  `).join('');
+  document.getElementById('sc-total').innerText=total+' грн';
+  document.getElementById('sc-delivery').innerHTML=deliveryHtml;
+  document.getElementById('sc-contact').innerHTML=contactHtml;
+  document.getElementById('cart').style.display='none';
+  document.getElementById('success-screen').style.display='block';
+  scrollTo(0,0);
+}
+function closeSuccess(){
+  document.getElementById('success-screen').style.display='none';
+  goHome();
+}
+      
 function launchConf(){
   const cols=["#30d158","#0a84ff","#ff9f0a","#ff453a","#bf5af2","#fff"];
   for(let i=0;i<70;i++){setTimeout(()=>{let el=document.createElement("div");el.className="cf";el.style.cssText=`left:${Math.random()*100}vw;top:-10px;background:${cols[Math.floor(Math.random()*cols.length)]};animation-duration:${1.5+Math.random()*2}s;animation-delay:${Math.random()*.5}s`;document.body.appendChild(el);setTimeout(()=>el.remove(),3500);},i*20);}
@@ -1608,6 +1648,45 @@ setTimeout(()=>{
   document.getElementById("splash").classList.add("out");
 },1600);
 </script>
+
+<!-- SUCCESS SCREEN -->
+<div id="success-screen" style="display:none;position:fixed;inset:0;background:var(--bg);z-index:99999;overflow-y:auto;padding:0 0 40px">
+  <div style="max-width:480px;margin:0 auto;padding:40px 20px 20px;text-align:center">
+    <div style="font-size:80px;margin-bottom:16px;animation:spPop .6s cubic-bezier(.34,1.56,.64,1)">🎉</div>
+    <div style="font-size:26px;font-weight:800;margin-bottom:8px">Замовлення прийнято!</div>
+    <div style="font-size:15px;color:var(--t2);margin-bottom:32px;line-height:1.6">Ми отримали ваше замовлення і зв'яжемося з вами найближчим часом</div>
+
+    <div style="background:var(--bg3);border-radius:20px;padding:20px;text-align:left;margin-bottom:16px">
+      <div style="font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px">📦 Деталі замовлення</div>
+      <div id="sc-items" style="margin-bottom:12px"></div>
+      <div style="border-top:1px solid var(--bg4);padding-top:12px;display:flex;justify-content:space-between;align-items:center">
+        <span style="font-size:14px;color:var(--t2)">Разом</span>
+        <span id="sc-total" style="font-size:22px;font-weight:700;color:var(--green)"></span>
+      </div>
+    </div>
+
+    <div style="background:var(--bg3);border-radius:20px;padding:20px;text-align:left;margin-bottom:16px">
+      <div style="font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px">🚚 Доставка</div>
+      <div id="sc-delivery" style="font-size:14px;color:var(--t2);line-height:1.7"></div>
+    </div>
+
+    <div style="background:var(--bg3);border-radius:20px;padding:20px;text-align:left;margin-bottom:24px">
+      <div style="font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px">👤 Контакт</div>
+      <div id="sc-contact" style="font-size:14px;color:var(--t2);line-height:1.7"></div>
+    </div>
+
+    <div style="background:rgba(48,209,88,.1);border:1px solid rgba(48,209,88,.3);border-radius:16px;padding:16px;margin-bottom:24px;font-size:13px;color:var(--green);line-height:1.6">
+      ✅ Очікуйте дзвінка або повідомлення у Telegram
+    </div>
+
+    <button onclick="closeSuccess()" style="width:100%;padding:16px;border:none;border-radius:20px;background:var(--green);color:#000;font-size:17px;font-weight:700;cursor:pointer;margin-bottom:12px">
+      🏠 На головну
+    </button>
+    <button onclick="window.open('https://t.me/BroykVapeshop')" style="width:100%;padding:15px;border:none;border-radius:20px;background:var(--bg3);color:var(--t2);font-size:15px;cursor:pointer">
+      ✈️ Написати в Telegram
+    </button>
+  </div>
+</div>
 
 </body>
 </html>
