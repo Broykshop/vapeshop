@@ -97,6 +97,49 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;ba
 .timer-label{font-size:11px;color:var(--red);font-weight:700;margin-bottom:2px}
 .timer-val{font-size:20px;font-weight:700;color:var(--red);font-variant-numeric:tabular-nums}
 
+
+/* ── PRODUCTS GRID ── */
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:0 16px 20px}
+.card{background:var(--bg3);border-radius:var(--r2);overflow:hidden;cursor:pointer;position:relative;transition:.15s}
+.card:active{transform:scale(.97)}
+.card-img-wrap{background:var(--bg2);position:relative;width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card-img-wrap img{width:100%;height:100%;object-fit:contain;padding:8px}
+.card-img-wrap .sk{position:absolute;inset:0;background:linear-gradient(90deg,var(--bg3) 25%,var(--bg4) 50%,var(--bg3) 75%);background-size:600px 100%;animation:sk 1.4s infinite}
+@keyframes sk{0%{background-position:-300px 0}100%{background-position:300px 0}}
+.card-body{padding:10px}
+.badge-row{display:flex;gap:4px;margin-bottom:4px;flex-wrap:wrap}
+.badge{font-size:10px;padding:2px 7px;border-radius:6px;font-weight:700}
+.b-hit{background:var(--orange);color:#000}
+.b-new{background:var(--blue);color:#fff}
+.card-name{font-size:13px;color:var(--t2);line-height:1.35;margin-bottom:4px}
+.card-price{font-size:16px;font-weight:700;color:var(--green);margin-bottom:8px}
+.card-buy {
+    width: 100%;
+    padding: 11px 12px;
+    border: none;
+    border-radius: 10px;
+    background: #000000;
+    color: #30d158;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .2s;
+    border: 2px solid #30d158;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    box-shadow: 0 3px 10px rgba(48, 209, 88, 0.25);
+}
+.card-buy:hover {
+    background: #30d158;
+    color: #000000;
+    box-shadow: 0 4px 14px rgba(48, 209, 88, 0.5);
+    transform: translateY(-1px);
+}
+.card-buy:active{transform:scale(.97)}
+.card-wish{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.55);border:none;color:#fff;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.card-wish.on{color:var(--red)}
+
+ 
+ 
 /* ── SECTION ── */
 .sec{padding:4px 0 0}
 .sec-head{display:flex;justify-content:space-between;align-items:center;padding:0 16px 10px}
@@ -146,45 +189,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;ba
 .sinput:focus{box-shadow:0 0 0 2px var(--green)}
 .sico{position:absolute;left:28px;top:50%;transform:translateY(-50%);color:var(--t3);font-size:15px;pointer-events:none}
 
-/* ── PRODUCTS GRID ── */
-.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:0 16px 20px}
-.card{background:var(--bg3);border-radius:var(--r2);overflow:hidden;cursor:pointer;position:relative;transition:.15s}
-.card:active{transform:scale(.97)}
-.card-img-wrap{background:var(--bg2);position:relative;width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.card-img-wrap img{width:100%;height:100%;object-fit:contain;padding:8px}
-.card-img-wrap .sk{position:absolute;inset:0;background:linear-gradient(90deg,var(--bg3) 25%,var(--bg4) 50%,var(--bg3) 75%);background-size:600px 100%;animation:sk 1.4s infinite}
-@keyframes sk{0%{background-position:-300px 0}100%{background-position:300px 0}}
-.card-body{padding:10px}
-.badge-row{display:flex;gap:4px;margin-bottom:4px;flex-wrap:wrap}
-.badge{font-size:10px;padding:2px 7px;border-radius:6px;font-weight:700}
-.b-hit{background:var(--orange);color:#000}
-.b-new{background:var(--blue);color:#fff}
-.card-name{font-size:13px;color:var(--t2);line-height:1.35;margin-bottom:4px}
-.card-price{font-size:16px;font-weight:700;color:var(--green);margin-bottom:8px}
-.card-buy {
-    width: 100%;
-    padding: 11px 12px;
-    border: none;
-    border-radius: 10px;
-    background: #000000;
-    color: #30d158;
-    font-size: 13.5px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all .2s;
-    border: 2px solid #30d158;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-    box-shadow: 0 3px 10px rgba(48, 209, 88, 0.25);
-}
-.card-buy:hover {
-    background: #30d158;
-    color: #000000;
-    box-shadow: 0 4px 14px rgba(48, 209, 88, 0.5);
-    transform: translateY(-1px);
-}
-.card-buy:active{transform:scale(.97)}
-.card-wish{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.55);border:none;color:#fff;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.card-wish.on{color:var(--red)}
+
 
 /* ── BACK BTN ── */
 .back-btn{background:none;border:none;color:var(--green);font-size:16px;font-weight:500;padding:14px 16px 6px;cursor:pointer;display:flex;align-items:center;gap:4px}
@@ -793,6 +798,8 @@ body.light .header,.body.light .bnav{background:rgba(242,242,247,.92)}
   </div>
   <div class="pgrid" id="pgrid"></div>
 </div>
+
+
 
 <!-- SEARCH RESULTS -->
 <div id="searchscreen" style="display:none">
