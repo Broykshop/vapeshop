@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://broykshop.github.io/vapeshop/sitemap.xml
