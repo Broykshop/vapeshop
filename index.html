@@ -1111,7 +1111,11 @@ function ld(){
   }catch(e){}
 }
 
-function ageYes(){try{localStorage.setItem("bs_age","ok")}catch(e){}document.getElementById("age").style.display="none";}
+function ageYes(){
+  try{localStorage.setItem("bs_age","ok")}catch(e){}
+  document.getElementById("age").style.display="none";
+  hideSplash();
+}
 function ageNo(){document.querySelector(".age-box").innerHTML='<div style="font-size:52px;margin-bottom:16px">🚫</div><div style="font-size:20px;font-weight:700;margin-bottom:10px">Доступ заборонено</div><div style="font-size:14px;color:var(--t3);line-height:1.6">Сайт доступний тільки для осіб старше 18 років.</div>';}
 
 let tT;
@@ -1672,14 +1676,23 @@ if(isLight){
   if(sw) sw.classList.add("on");
 }
 
+// СТАЛО:
 try{
   if(localStorage.getItem("bs_age")==="ok")
     document.getElementById("age").style.display="none";
 }catch(e){}
 
-setTimeout(()=>{
-  document.getElementById("splash").classList.add("out");
-},1600);
+// Splash ховаємо тільки після того, як юзер пройшов age gate
+function hideSplash(){
+  setTimeout(()=>{
+    document.getElementById("splash").classList.add("out");
+  }, 800);
+}
+
+// Якщо вік вже підтверджено — ховаємо одразу
+try{
+  if(localStorage.getItem("bs_age")==="ok") hideSplash();
+}catch(e){ hideSplash(); }
 </script>
 
 <!-- SUCCESS SCREEN -->
