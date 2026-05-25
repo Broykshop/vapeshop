@@ -534,22 +534,7 @@ body.light .header,.body.light .bnav{background:rgba(242,242,247,.92)}
 
 </style>
 </head>
-<script>
-if('Notification' in window && 'serviceWorker' in navigator) {
-  setTimeout(() => {
-    if(Notification.permission === 'default') {
-      Notification.requestPermission().then(p => {
-        if(p === 'granted') {
-          new Notification('🔥 Broyk Shop', {
-            body: 'Знижка -25% на 3 замовлення! Тільки сьогодні',
-            icon: '/favicon.png'
-          });
-        }
-      });
-    }
-  }, 30000); // питає через 30 секунд
-}
-</script>
+
 <body>
 
 <!-- AGE MODAL -->
@@ -1659,6 +1644,23 @@ try{
     </button>
   </div>
 </div>
+
+  <script>
+if('Notification' in window && 'serviceWorker' in navigator) {
+  setTimeout(() => {
+    if(Notification.permission === 'default') {
+      Notification.requestPermission().then(p => {
+        if(p === 'granted') {
+          new Notification('🔥 Broyk Shop', {
+            body: 'Знижка -25% на 3 замовлення! Тільки сьогодні',
+            icon: '/favicon.png'
+          });
+        }
+      });
+    }
+  }, 30000); // питає через 30 секунд
+}
+</script>
 
 </body>
 </html>
