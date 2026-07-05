@@ -126,6 +126,30 @@
   }
 ]
 </script>
+<!-- Firebase -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCB9XeTrfafPkIl24EKRh3Wcb8pKaEXZo8",
+    authDomain: "broykshop-3936b.firebaseapp.com",
+    databaseURL: "https://broykshop-3936b-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "broykshop-3936b",
+    storageBucket: "broykshop-3936b.firebasestorage.app",
+    messagingSenderId: "94814283174",
+    appId: "1:94814283174:web:d283ea66fc5e747de39b67"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  window.fbDb = db;
+  window.fbRef = ref;
+  window.fbPush = push;
+  window.fbOnValue = onValue;
+  window.fbReady = true;
+  document.dispatchEvent(new Event('fbReady'));
+</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :root{
@@ -536,7 +560,6 @@ body.light .header,.body.light .bnav{background:rgba(242,242,247,.92)}
 </style>
 </head>
 
-<script>
 
 </script>
   
@@ -1291,18 +1314,72 @@ function closeZoom(){document.getElementById("zoom").classList.remove("on");zSca
 
 function setStar(n){dstar=n;document.querySelectorAll(".star").forEach((s,i)=>s.innerText=i<n?"★":"☆");}
 function addRev(){
-  if(!dp)return;if(!dstar){toast("Оберіть оцінку ⭐");return;}
-  let txt=document.getElementById("rev-inp").value.trim(),id=dp.id;
-  if(!reviews[id])reviews[id]=[];if(!ratings[id])ratings[id]=[];
-  reviews[id].push({a:cu?cu.name:"Гість",t:txt,r:dstar,d:new Date().toLocaleDateString("uk-UA")});
-  ratings[id].push(dstar);sv();renderRevs(id);
-  document.getElementById("rev-inp").value="";setStar(0);toast("✔ Відгук додано!");
+  if(!dp)return;
+  if(!dstar){toast("Оберіть оцінку ⭐");return;}
+  let txt=document.getElementById("rev-inp").value.trim();
+  let id=dp.id;
+  let rev={
+    a: cu ? cu.name : "Гість",
+    t: txt,
+    r: dstar,
+    d: new Date().toLocaleDateString("uk-UA")
+  };
+  if(window.fbReady){
+    let r=window.fbRef(window.fbDb, 'reviews/'+id);
+    window.fbPush(r, rev);
+    toast("✔ Відгук додано!");
+  } else {
+    if(!reviews[id])reviews[id]=[];
+    if(!ratings[id])ratings[id]=[];
+    reviews[id].push(rev);
+    ratings[id].push(dstar);
+    sv();
+    toast("✔ Відгук додано!");
+  }
+  document.getElementById("rev-inp").value="";
+  setStar(0);
+  renderRevs(id);
 }
 function renderRevs(id){
-  let avg=0;if(ratings[id]&&ratings[id].length)avg=ratings[id].reduce((a,b)=>a+b,0)/ratings[id].length;
-  document.getElementById("d-avg").innerText=ratings[id]&&ratings[id].length?("★".repeat(Math.round(avg))+" "+avg.toFixed(1)):"Поки немає оцінок";
-  let el=document.getElementById("d-revs");el.innerHTML="";
-  (reviews[id]||[]).slice().reverse().forEach(r=>{el.innerHTML+=`<div class="rev-item"><div class="rev-author">${r.a} ${"★".repeat(r.r)}${"☆".repeat(5-r.r)}</div>${r.t?`<div class="rev-text">${r.t}</div>`:""}<div class="rev-date">${r.d}</div></div>`;});
+  let el=document.getElementById("d-revs");
+  let avgEl=document.getElementById("d-avg");
+  el.innerHTML='<div style="color:var(--t3);font-size:13px">Завантаження відгуків...</div>';
+
+  if(window.fbReady){
+    let r=window.fbRef(window.fbDb, 'reviews/'+id);
+    window.fbOnValue(r, snap=>{
+      let data=snap.val();
+      el.innerHTML="";
+      if(!data){
+        avgEl.innerText="Поки немає оцінок";
+        return;
+      }
+      let revs=Object.values(data);
+      let avg=revs.reduce((a,b)=>a+b.r,0)/revs.length;
+      avgEl.innerText="★".repeat(Math.round(avg))+" "+avg.toFixed(1);
+      revs.slice().reverse().forEach(r=>{
+        el.innerHTML+=`<div class="rev-item">
+          <div class="rev-author">${r.a} ${"★".repeat(r.r)}${"☆".repeat(5-r.r)}</div>
+          ${r.t?`<div class="rev-text">${r.t}</div>`:""}
+          <div class="rev-date">${r.d}</div>
+        </div>`;
+      });
+    });
+  } else {
+    let avg=0;
+    if(ratings[id]&&ratings[id].length)
+      avg=ratings[id].reduce((a,b)=>a+b,0)/ratings[id].length;
+    avgEl.innerText=ratings[id]&&ratings[id].length?
+      ("★".repeat(Math.round(avg))+" "+avg.toFixed(1)):"Поки немає оцінок";
+    el.innerHTML="";
+    (reviews[id]||[]).slice().reverse().forEach(r=>{
+      el.innerHTML+=`<div class="rev-item">
+        <div class="rev-author">${r.a} ${"★".repeat(r.r)}${"☆".repeat(5-r.r)}</div>
+        ${r.t?`<div class="rev-text">${r.t}</div>`:""}
+        <div class="rev-date">${r.d}</div>
+      </div>`;
+    });
+  }
 }
 
 function addC(n,p){let f=cart.find(i=>i.n===n);if(f)f.q++;else cart.push({n,p,q:1});updCount();sv();}
