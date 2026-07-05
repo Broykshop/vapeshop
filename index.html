@@ -9,6 +9,11 @@
 <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
 <meta charset="UTF-8">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#000">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -561,7 +566,6 @@ body.light .header,.body.light .bnav{background:rgba(242,242,247,.92)}
 </head>
 
 
-</script>
   
 <body>
 
@@ -1071,7 +1075,14 @@ let recent=[];
 let isLight=false;
 const MIN=200,FREE=1500;
 const BOT="8737020762:AAFSXbcjkIVeTs8kpnoKtUAWgkA3BHddc48",CID="2075452385";
-const PROMOS={"BROYK10":10,"VAPE15":15,"VINNITSA20":20};
+function checkPromo(code) {
+  const codes = {
+    "BROYK10": 10,
+    "VAPE15": 15,
+    "VINNITSA20": 20
+  };
+  return codes[code.toUpperCase()] || 0;
+}
 const NP="https://api.novaposhta.ua/v2.0/json/";
 const NPKEY="152ecce24747cf0f3526f7456666ed25";
 
@@ -1316,7 +1327,19 @@ function setStar(n){dstar=n;document.querySelectorAll(".star").forEach((s,i)=>s.
 function addRev(){
   if(!dp)return;
   if(!dstar){toast("Оберіть оцінку ⭐");return;}
-  let txt=document.getElementById("rev-inp").value.trim();
+  let lastRev = localStorage.getItem('lastRev');
+  if(lastRev && Date.now() - +lastRev < 30000) {
+    toast("⏳ Зачекайте 30 секунд перед наступним відгуком");
+    return;
+  }
+ localStorage.setItem('lastRev', Date.now());
+
+let txt = document.getElementById("rev-inp").value.trim(); // ← ДОДАЙ ТУТ
+
+if(txt.length > 500){toast("❌ Відгук занадто довгий");return;}
+if(txt.length > 0 && txt.length < 3){toast("❌ Мінімум 3 символи");return;}
+
+let id=dp.id;
   let id=dp.id;
   let rev={
     a: cu ? cu.name : "Гість",
@@ -1493,6 +1516,14 @@ function sendOrder(){
   let n=document.getElementById("oname").value.trim(),ph=document.getElementById("ophone").value.trim();
   if(!n){toast("Введіть ім'я");sending=false;return;}
   if(!ph){toast("Введіть телефон");sending=false;return;}
+  // Захист від флуду замовлень
+let lastOrder = localStorage.getItem('lastOrder');
+if(lastOrder && Date.now() - +lastOrder < 60000) {
+  toast("⏳ Зачекайте хвилину між замовленнями");
+  sending=false;
+  return;
+}
+localStorage.setItem('lastOrder', Date.now());
   let fin=Math.round(sum*(1-discount/100));
   let msg="🛒 *НОВЕ ЗАМОВЛЕННЯ!*\n\n";
   cart.forEach(i=>msg+=`▪️ ${i.n} x${i.q} — ${i.p*i.q} грн\n`);
@@ -1796,7 +1827,35 @@ if(location.pathname.startsWith('/product-')) {
   let id = parseInt(location.pathname.replace('/product-',''));
   if(!isNaN(id)) setTimeout(() => openD(id), 100);
 }
+
+
+    
 </script>
 
+<script>
+// Захист від правої кнопки миші
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// Захист від F12 / DevTools
+document.addEventListener('keydown', e => {
+  if(e.key === 'F12') e.preventDefault();
+  if(e.ctrlKey && e.shiftKey && e.key === 'I') e.preventDefault();
+  if(e.ctrlKey && e.shiftKey && e.key === 'J') e.preventDefault();
+  if(e.ctrlKey && e.key === 'U') e.preventDefault();
+});
+
+// Захист від виділення тексту
+document.addEventListener('selectstart', e => e.preventDefault());
+
+// Анти-дебаггер
+setInterval(() => {
+  const start = Date.now();
+  debugger;
+  if(Date.now() - start > 100) {
+    document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-size:24px;color:#fff;background:#000">🔒 Доступ заборонено</div>';
+  }
+}, 1000);
+</script>
+  
 </body>
 </html>
