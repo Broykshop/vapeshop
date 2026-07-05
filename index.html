@@ -1222,6 +1222,14 @@ let gIdx=0,gImgs=[],gSX=0;
 function openD(id){
   let p=P.find(x=>x.id===id);if(!p)return;
   dp=p;dqty=1;dstar=0;
+  // Динамічні мета-теги для SEO
+document.title = p.n + ' — ' + p.p + ' грн | Broyk Shop';
+document.querySelector('meta[name="description"]').setAttribute('content', 
+  p.n + '. ' + p.desc + ' Ціна: ' + p.p + ' грн. Купити в Broyk Shop з доставкою по Україні.');
+document.querySelector('meta[property="og:title"]').setAttribute('content', p.n + ' | Broyk Shop');
+document.querySelector('meta[property="og:description"]').setAttribute('content', 
+  p.desc + ' Ціна: ' + p.p + ' грн.');
+history.pushState({id:p.id}, '', '/product-' + p.id);
   addRecent(id);
   gImgs=[p.img,...P.filter(x=>x.cat===p.cat&&x.id!==p.id&&x.img!==p.img).slice(0,3).map(x=>x.img)];
   gIdx=0;
@@ -1250,6 +1258,10 @@ function closeDetail(){
   let d=document.getElementById("detail");
   d.style.display="none";
   d.classList.remove("open");
+  document.title = 'Broyk Shop — Вейп магазин | Жижи та Поди';
+document.querySelector('meta[name="description"]').setAttribute('content', 
+  'Broyk Shop — вейп магазин у Вінниці. POD системи, рідини Chaser, картриджі. Доставка по Україні.');
+history.pushState({}, '', '/');
 }
 function goG(i){gIdx=Math.max(0,Math.min(i,gImgs.length-1));document.getElementById("gal-track").style.transform=`translateX(-${gIdx*100}%)`;document.querySelectorAll(".gdot").forEach((d,j)=>d.classList.toggle("on",j===gIdx));}
 function initGSwipe(){
@@ -1697,6 +1709,15 @@ if('Notification' in window && 'serviceWorker' in navigator) {
       });
     }
   }, 30000); // питає через 30 секунд
+}
+// Відновлення товару при прямому заході по URL
+window.addEventListener('popstate', e => {
+  if(e.state && e.state.id !== undefined) openD(e.state.id);
+  else closeDetail();
+});
+if(location.pathname.startsWith('/product-')) {
+  let id = parseInt(location.pathname.replace('/product-',''));
+  if(!isNaN(id)) setTimeout(() => openD(id), 100);
 }
 </script>
 
