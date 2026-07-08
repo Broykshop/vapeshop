@@ -560,7 +560,49 @@ body.light{--bg:#f2f2f7;--bg2:#fff;--bg3:#fff;--bg4:#e5e5ea;--text:#000;--t2:rgb
 body.light .header,.body.light .bnav{background:rgba(242,242,247,.92)}
   
 
+/* ── PARALLAX ФОТО ── */
+.gal-slide img{transition:transform .1s ease-out}
 
+/* ── АНІМАЦІЯ ХАРАКТЕРИСТИК ── */
+.spec-row{opacity:0;transform:translateY(20px);transition:opacity .4s ease,transform .4s ease}
+.spec-row.visible{opacity:1;transform:translateY(0)}
+
+/* ── ПУЛЬСУЮЧА КНОПКА ── */
+.d-add-btn{
+  position:relative;
+  overflow:hidden;
+  animation:btnPulse 2s infinite;
+}
+@keyframes btnPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(48,209,88,.4)}
+  50%{box-shadow:0 0 0 12px rgba(48,209,88,0)}
+}
+.d-add-btn::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
+  transform:translateX(-100%);
+  animation:btnShine 3s infinite;
+}
+@keyframes btnShine{
+  0%{transform:translateX(-100%)}
+  30%,100%{transform:translateX(100%)}
+}
+
+/* ── ZOOM АНІМАЦІЯ ── */
+#zoom{transition:opacity .3s}
+#zoom.on{display:flex;animation:zoomIn .3s ease}
+@keyframes zoomIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+#zoom img{transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+#zoom.on img{animation:imgPop .3s cubic-bezier(.34,1.56,.64,1)}
+@keyframes imgPop{
+  from{transform:scale(.8)}
+  to{transform:scale(1)}
+}
 
 </style>
 </head>
@@ -1339,7 +1381,7 @@ let txt = document.getElementById("rev-inp").value.trim(); // ← ДОДАЙ Т�
 if(txt.length > 500){toast("❌ Відгук занадто довгий");return;}
 if(txt.length > 0 && txt.length < 3){toast("❌ Мінімум 3 символи");return;}
 
-let id=dp.id;
+
   let id=dp.id;
   let rev={
     a: cu ? cu.name : "Гість",
@@ -1847,14 +1889,49 @@ document.addEventListener('keydown', e => {
 // Захист від виділення тексту
 document.addEventListener('selectstart', e => e.preventDefault());
 
-// Анти-дебаггер
-setInterval(() => {
-  const start = Date.now();
-  debugger;
-  if(Date.now() - start > 100) {
-    document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-size:24px;color:#fff;background:#000">🔒 Доступ заборонено</div>';
-  }
-}, 1000);
+
+
+// ── PARALLAX ФОТО ──
+function initParallax(){
+  let detail=document.getElementById('detail');
+  detail.addEventListener('scroll',()=>{
+    let imgs=document.querySelectorAll('.gal-slide img');
+    let scroll=detail.scrollTop;
+    imgs.forEach(img=>{
+      img.style.transform=`scale(${1+scroll*0.0003}) translateY(${scroll*0.08}px)`;
+    });
+  },{passive:true});
+}
+
+// ── АНІМАЦІЯ ХАРАКТЕРИСТИК ──
+function initSpecsAnim(){
+  let detail=document.getElementById('detail');
+  let observer=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+      }
+    });
+  },{root:detail,threshold:0.1});
+  
+  setTimeout(()=>{
+    document.querySelectorAll('.spec-row').forEach((row,i)=>{
+      row.style.transitionDelay=i*0.08+'s';
+      observer.observe(row);
+    });
+  },100);
+}
+
+// Викликай при відкритті товару
+const _origOpenD = openD;
+window.openD = function(id){
+  _origOpenD(id);
+  setTimeout(()=>{
+    initParallax();
+    initSpecsAnim();
+  },50);
+};
+  
 </script>
   
 </body>
