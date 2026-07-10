@@ -1116,7 +1116,7 @@ let selCity="",cityT=null,branchT=null;
 let recent=[];
 let isLight=false;
 const MIN=200,FREE=1500;
-const BOT="8737020762:AAFSXbcjkIVeTs8kpnoKtUAWgkA3BHddc48",CID="2075452385";
+
 function checkPromo(code) {
   const codes = {
     "BROYK10": 10,
@@ -1125,9 +1125,8 @@ function checkPromo(code) {
   };
   return codes[code.toUpperCase()] || 0;
 }
-const NP="https://api.novaposhta.ua/v2.0/json/";
-const NPKEY="152ecce24747cf0f3526f7456666ed25";
-
+const ORDER_WORKER="https://broykshop.makarsimcuk10.workers.dev";
+const NP_WORKER="https://broyk-nova-poshta.makarsimcuk10.workers.dev";
 function sv(){try{localStorage.setItem("bs",JSON.stringify({cart,wish,reviews,ratings,orderHist,cu,users,recent,isLight}))}catch(e){}}
 function ld(){
   try{
@@ -1527,7 +1526,7 @@ async function searchCity(){
   cityT=setTimeout(async()=>{
     cl.innerHTML="<div style='padding:10px 14px;color:var(--t3)'>Пошук...</div>";
     try{
-      let r=await fetch(NP,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({apiKey:NPKEY,modelName:"Address",calledMethod:"getCities",methodProperties:{FindByString:q,Limit:"8"}})});
+      let r=await fetch(NP_WORKER,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({modelName:"Address",calledMethod:"getCities",methodProperties:{FindByString:q,Limit:"8"}})});
       let d=await r.json();cl.innerHTML="";
       (d.data||[]).slice(0,6).forEach(c=>{let div=document.createElement("div");div.innerText=c.Description+(c.AreaDescription?" — "+c.AreaDescription:"");div.onclick=()=>{document.getElementById("city").value=c.Description;selCity=c.Ref;cl.innerHTML="";loadBranch();};cl.appendChild(div);});
       if(!(d.data||[]).length)cl.innerHTML="<div style='padding:10px 14px;color:var(--t3)'>Не знайдено</div>";
@@ -1542,7 +1541,7 @@ async function loadBranch(f=""){
   let bl=document.getElementById("blist");if(!selCity){bl.innerHTML="";return;}
   bl.innerHTML="<div style='padding:10px 14px;color:var(--t3)'>Завантаження...</div>";
   try{
-    let r=await fetch(NP,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({apiKey:NPKEY,modelName:"AddressGeneral",calledMethod:"getWarehouses",methodProperties:{CityRef:selCity,FindByString:f,Limit:"50"}})});
+    let r=await fetch(NP_WORKER,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({modelName:"AddressGeneral",calledMethod:"getWarehouses",methodProperties:{CityRef:selCity,FindByString:f,Limit:"50"}})});
     let d=await r.json();bl.innerHTML="";
     (d.data||[]).forEach(b=>{let div=document.createElement("div");div.innerText=b.Description;div.onclick=()=>{document.getElementById("branch").value=b.Description;bl.innerHTML="";};bl.appendChild(div);});
     if(!(d.data||[]).length)bl.innerHTML="<div style='padding:10px 14px;color:var(--t3)'>Не знайдено</div>";
@@ -1642,10 +1641,10 @@ localStorage.setItem('lastOrder', Date.now());
     if(!didRespond){didRespond=true;resetBtn();onFail();}
   },8000);
 
-  fetch(`https://api.telegram.org/bot${BOT}/sendMessage`,{
+  fetch(ORDER_WORKER,{
     method:"POST",
     headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({chat_id:CID,text:msg,parse_mode:"Markdown"})
+    body:JSON.stringify({message:msg})
   }).then(r=>r.json()).then(d=>{
     if(didRespond)return;
     didRespond=true;clearTimeout(tgTimeout);resetBtn();
