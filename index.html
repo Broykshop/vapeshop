@@ -604,6 +604,36 @@ body.light .header,.body.light .bnav{background:rgba(242,242,247,.92)}
   to{transform:scale(1)}
 }
 
+/* ── MASCOT ── */
+#mascot-wrap{
+  position:fixed;
+  bottom:100px;right:14px;
+  width:120px;height:auto;
+  z-index:4000;
+  cursor:grab;
+  touch-action:none;
+  user-select:none;
+  -webkit-user-drag:none;
+  filter:drop-shadow(0 8px 20px rgba(0,0,0,.5));
+  animation:mascotFloat 3.2s ease-in-out infinite;
+}
+#mascot-wrap.dragging{animation:none;cursor:grabbing}
+#mascot-wrap img{width:100%;height:auto;display:block;pointer-events:none;-webkit-user-drag:none}
+@keyframes mascotFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+.mascot-bounce{animation:mascotBounce .4s ease !important}
+@keyframes mascotBounce{
+  0%{transform:scale(1)}
+  40%{transform:scale(1.12)}
+  100%{transform:scale(1)}
+}
+#mascot-stack{position:absolute;inset:0;pointer-events:none}
+@media(min-width:900px){
+  #mascot-wrap{bottom:24px;right:24px;width:140px}
+}
+  
 </style>
 </head>
 
@@ -887,7 +917,7 @@ body.light .header,.body.light .bnav{background:rgba(242,242,247,.92)}
       <div class="similar-scroll" id="sim-scroll"></div>
     </div>
     <button onclick="shareP()" style="background:var(--bg3);border:none;color:var(--t2);padding:10px 14px;border-radius:var(--r);font-size:13px;cursor:pointer;display:flex;align-items:center;gap:6px;margin-top:4px">📤 Поділитись</button>
-    <button class="d-add-btn" onclick="addFromD()">🛒 До кошика</button>
+    <button class="d-add-btn" onclick="addFromD(event)">🛒 До кошика</button>
   </div>
   </div>
 </div>
@@ -1055,6 +1085,13 @@ body.light .header,.body.light .bnav{background:rgba(242,242,247,.92)}
   </div>
 </div>
 
+<!-- MASCOT -->
+<div id="mascot-wrap">
+  <div id="mascot-stack"></div>
+  <img id="mascot-img" src="mascot.png" alt="Помічник Broyk" draggable="false">
+</div>
+
+  
 <!-- BOTTOM NAV -->
 <div class="bnav">
   <button class="bni on" id="bn-home" onclick="goHome();setNav('home')">
@@ -1274,7 +1311,7 @@ function quickAdd(e,id){
   addC(p.n,p.p);toast("✔ "+p.n+" додано!");
   let b=e.target;b.innerText="✓";b.style.background="#1a4a2a";
   setTimeout(()=>{b.innerText="До кошика";b.style.background="";},1500);
-  flyAnim(e,p);
+  flyToMascot(e,p.img);
 }
 
 function toggleW(id,btn){
@@ -1345,7 +1382,7 @@ function initGSwipe(){
   el.ontouchend=e=>{let dx=e.changedTouches[0].clientX-gSX;if(Math.abs(dx)>40){dx<0?goG(gIdx+1):goG(gIdx-1);}};
 }
 function chQty(d){dqty=Math.max(1,dqty+d);document.getElementById("d-qty").innerText=dqty;document.getElementById("d-qtot").innerText=dqty>1?"= "+(dqty*dp.p)+" грн":"";}
-function addFromD(){if(!dp)return;if(navigator.vibrate)navigator.vibrate([10,30,10]);for(let i=0;i<dqty;i++)addC(dp.n,dp.p);toast("✔ Додано "+dqty+" шт!");}
+function addFromD(e){if(!dp)return;if(navigator.vibrate)navigator.vibrate([10,30,10]);for(let i=0;i<dqty;i++)addC(dp.n,dp.p);toast("✔ Додано "+dqty+" шт!");flyToMascot(e||window.event, dp.img);}
 function toggleDWish(){
   if(!dp)return;let id=dp.id,i=wish.indexOf(id),wb=document.getElementById("gal-wish");
   if(i>=0){wish.splice(i,1);wb.innerText="♡";wb.classList.remove("on");toast("Видалено");}
@@ -1451,6 +1488,7 @@ function updCount(){
   let t=0;cart.forEach(i=>t+=i.q);
   document.getElementById("ccount").innerText=t;
   let b=document.getElementById("cbadge");b.innerText=t;b.classList.toggle("on",t>0);
+  renderMascotStack();
 }
 
 /* БАГ 2 ВИПРАВЛЕНО: loadDelData() додано прямо в openCart, видалено _origOpenCart */
@@ -1603,7 +1641,7 @@ localStorage.setItem('lastOrder', Date.now());
     let contactHtml=`👤 ${n}<br>📞 ${ph}`;
     let snapItems=[...cart];
     let snapTotal=fin;
-    cart=[];discount=0;updCount();sv();
+    cart=[];discount=0;mascotStackItems=[];updCount();renderMascotStack();sv();
     try{document.getElementById("promo-ok").style.display="none";}catch(e){}
     try{document.getElementById("promo-inp").value="";}catch(e){}
     launchConf();
@@ -1625,7 +1663,7 @@ localStorage.setItem('lastOrder', Date.now());
     let contactHtml=`👤 ${n}<br>📞 ${ph}`;
     let snapItems=[...cart];
     let snapTotal=fin;
-    cart=[];discount=0;updCount();sv();
+    cart=[];discount=0;mascotStackItems=[];updCount();renderMascotStack();sv();
     try{document.getElementById("promo-ok").style.display="none";}catch(e){}
     try{document.getElementById("promo-inp").value="";}catch(e){}
     launchConf();
@@ -1930,6 +1968,92 @@ window.openD = function(id){
     initSpecsAnim();
   },50);
 };
+
+
+/* ── MASCOT DRAG ── */
+(function(){
+  const wrap = document.getElementById('mascot-wrap');
+  if(!wrap) return;
+  let dragging=false, offX=0, offY=0;
+
+  function clampPos(x,y){
+    const w = wrap.offsetWidth, h = wrap.offsetHeight;
+    const maxX = window.innerWidth - w - 4;
+    const maxY = window.innerHeight - h - 4;
+    return { x: Math.min(Math.max(4,x), maxX), y: Math.min(Math.max(4,y), maxY) };
+  }
+  function setPos(x,y){
+    const p = clampPos(x,y);
+    wrap.style.left = p.x + 'px';
+    wrap.style.top = p.y + 'px';
+    wrap.style.right = 'auto';
+    wrap.style.bottom = 'auto';
+  }
+  wrap.addEventListener('pointerdown', e=>{
+    dragging = true;
+    wrap.setPointerCapture(e.pointerId);
+    const rect = wrap.getBoundingClientRect();
+    offX = e.clientX - rect.left;
+    offY = e.clientY - rect.top;
+    wrap.classList.add('dragging');
+  });
+  wrap.addEventListener('pointermove', e=>{
+    if(!dragging) return;
+    setPos(e.clientX - offX, e.clientY - offY);
+  });
+  function endDrag(){ dragging=false; wrap.classList.remove('dragging'); }
+  wrap.addEventListener('pointerup', endDrag);
+  wrap.addEventListener('pointercancel', endDrag);
+  window.addEventListener('resize', ()=>{
+    const rect = wrap.getBoundingClientRect();
+    if(rect.left && rect.top) setPos(rect.left, rect.top);
+  });
+})();
+
+/* ── MASCOT FLY ANIMATION + STACK ── */
+let mascotStackItems=[];
+function flyToMascot(e, imgSrc){
+  const mascot=document.getElementById('mascot-wrap');
+  if(!mascot||!e) return;
+  let startEl=e.target.closest('.card,.rec-card,.sim-card')||e.target;
+  let startImg=startEl.querySelector?startEl.querySelector('img'):null;
+  let startRect=(startImg||startEl).getBoundingClientRect();
+  let mRect=mascot.getBoundingClientRect();
+  let handX=mRect.left+mRect.width*0.52;
+  let handY=mRect.top+mRect.height*0.6;
+
+  let fly=document.createElement('img');
+  fly.src=imgSrc||(startImg?startImg.src:'');
+  fly.style.cssText=`position:fixed;left:${startRect.left}px;top:${startRect.top}px;width:${startRect.width||40}px;height:${startRect.height||40}px;object-fit:contain;z-index:99999;border-radius:10px;pointer-events:none;transition:all .7s cubic-bezier(.3,0,.2,1);opacity:.95;background:#111`;
+  document.body.appendChild(fly);
+  requestAnimationFrame(()=>{
+    fly.style.left=(handX-15)+'px';
+    fly.style.top=(handY-15)+'px';
+    fly.style.width='30px';
+    fly.style.height='30px';
+    fly.style.opacity='.3';
+  });
+  setTimeout(()=>{
+    fly.remove();
+    mascotStackItems.push(imgSrc||(startImg?startImg.src:''));
+    renderMascotStack();
+    mascot.classList.add('mascot-bounce');
+    setTimeout(()=>mascot.classList.remove('mascot-bounce'),400);
+  },700);
+}
+function renderMascotStack(){
+  const stack=document.getElementById('mascot-stack');
+  if(!stack) return;
+  const totalQty=cart.reduce((a,i)=>a+i.q,0);
+  const shown=mascotStackItems.slice(-5);
+  stack.innerHTML=shown.map((src,i)=>{
+    const rot=(i%2===0?-1:1)*(6+i*3);
+    const shift=i*7;
+    const leftPct=50+(i%2===0?-shift:shift);
+    return `<img src="${src}" style="position:absolute;bottom:${16+i*4}%;left:${leftPct}%;width:22%;max-width:30px;aspect-ratio:1;object-fit:contain;border-radius:6px;border:1.5px solid #fff;background:#111;transform:translateX(-50%) rotate(${rot}deg);box-shadow:0 2px 6px rgba(0,0,0,.4)">`;
+  }).join('')+(totalQty>0?`<div style="position:absolute;top:-4%;right:-4%;background:var(--green);color:#000;font-size:11px;font-weight:800;min-width:20px;height:20px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 4px">${totalQty}</div>`:'');
+}
+  
   
 </script>
   
