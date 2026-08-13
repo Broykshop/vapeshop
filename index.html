@@ -1341,7 +1341,7 @@ document.querySelector('meta[name="description"]').setAttribute('content',
 document.querySelector('meta[property="og:title"]').setAttribute('content', p.n + ' | Broyk Shop');
 document.querySelector('meta[property="og:description"]').setAttribute('content', 
   p.desc + ' Ціна: ' + p.p + ' грн.');
-history.pushState({id:p.id}, '', '/product-' + p.id);
+history.pushState({id:p.id}, '', '/?id=' + p.id);
   addRecent(id);
   gImgs=[p.img,...P.filter(x=>x.cat===p.cat&&x.id!==p.id&&x.img!==p.img).slice(0,3).map(x=>x.img)];
   gIdx=0;
@@ -1902,10 +1902,8 @@ window.addEventListener('popstate', e => {
   if(e.state && e.state.id !== undefined) openD(e.state.id);
   else closeDetail();
 });
-if(location.pathname.startsWith('/product-')) {
-  let id = parseInt(location.pathname.replace('/product-',''));
-  if(!isNaN(id)) setTimeout(() => openD(id), 100);
-}
+const urlId = new URLSearchParams(location.search).get('id');
+if(urlId) setTimeout(() => openD(parseInt(urlId)), 300);
 
 
     
