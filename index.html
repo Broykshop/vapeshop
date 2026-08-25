@@ -635,109 +635,239 @@ body.light .header,.body.light .bnav{background:rgba(242,242,247,.92)}
 }
 
 /* ══ TERRA MARE REDESIGN — ПРАВИЛЬНИЙ ══ */
+/* ══ TERRA MARE v2 ══ */
 :root{
-  --bg:#ffffff;
-  --bg2:#f5f5f5;
-  --bg3:#f0f0f0;
-  --bg4:#e0e0e0;
-  --text:#000000;
-  --t2:#333333;
-  --t3:#777777;
-  --green:#cc0000;
-  --green2:#aa0000;
-  --red:#cc0000;
-  --blue:#cc0000;
-  --orange:#cc0000;
+  --bg:#f2ede8;
+  --bg2:#ede8e2;
+  --bg3:#e5dfd8;
+  --bg4:#d8d0c8;
+  --text:#1a1008;
+  --t2:#3d2e1e;
+  --t3:#8a7060;
+  --green:#cc2200;
+  --green2:#aa1800;
+  --red:#cc2200;
+  --blue:#cc2200;
+  --orange:#cc2200;
   --r:0px;
   --r2:0px;
 }
 
 /* ── БАЗА ── */
-html,body{background:#fff !important;color:#000 !important}
+html,body{background:#f2ede8 !important;color:#1a1008 !important}
 
 /* ── SPLASH ── */
-#splash{background:#fff !important}
-.sp-name{color:#cc0000 !important}
-.sp-sub{color:#666 !important}
+#splash{background:#f2ede8 !important}
+.sp-name{color:#cc2200 !important;font-size:32px !important;letter-spacing:6px !important}
+.sp-sub{color:#8a7060 !important}
+.sp-icon{display:none}
 
 /* ── HEADER ── */
 .header{
-  background:#fff !important;
+  background:#f2ede8 !important;
   backdrop-filter:none !important;
   -webkit-backdrop-filter:none !important;
-  border-bottom:2px solid #000 !important;
+  border-bottom:1px solid #d8d0c8 !important;
+  padding:16px 20px !important;
+  height:auto !important;
 }
-.h-logo{color:#000 !important;letter-spacing:3px;text-transform:uppercase;font-weight:900}
-.h-logo span{color:#cc0000 !important}
-.hbtn{background:#f0f0f0 !important;color:#000 !important;border-radius:0 !important}
-.cart-hbtn{background:#cc0000 !important;color:#fff !important;border-radius:0 !important}
+.h-logo{
+  color:#1a1008 !important;
+  font-size:22px !important;
+  letter-spacing:4px !important;
+  text-transform:uppercase !important;
+  font-weight:900 !important;
+}
+.h-logo span{color:#cc2200 !important}
+.hbtn{background:#e5dfd8 !important;color:#1a1008 !important;border-radius:0 !important;border:1px solid #d8d0c8 !important}
+.cart-hbtn{background:#cc2200 !important;color:#fff !important;border-radius:0 !important;border:none !important}
 
-/* ── SIDEBAR ── */
-.home-sidebar{background:#f5f5f5 !important;border-right:2px solid #000 !important}
-.sidebar-logo{color:#000 !important;border-bottom:2px solid #000 !important}
-.sidebar-logo span{color:#cc0000 !important}
-.snav-item{color:#333 !important;border-radius:0 !important}
-.snav-item:hover{background:#e0e0e0 !important;color:#000 !important}
-.snav-item.active{background:#cc0000 !important;color:#fff !important}
-.sidebar-section{color:#999 !important}
+/* ── ДЕСКТОП САЙДБАР → ПРИБИРАЄМО, РОБИМО ТОП МЕНЮ ── */
+@media(min-width:900px){
+  .home-sidebar{
+    width:100% !important;
+    height:52px !important;
+    position:fixed !important;
+    top:60px !important;
+    left:0 !important;
+    right:0 !important;
+    bottom:auto !important;
+    background:#cc2200 !important;
+    border-right:none !important;
+    border-bottom:none !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    padding:0 24px !important;
+    overflow:visible !important;
+    z-index:199 !important;
+  }
+  .sidebar-logo{display:none !important}
+  .sidebar-section{display:none !important}
+  .sidebar-nav{
+    flex-direction:row !important;
+    gap:0 !important;
+    width:100% !important;
+  }
+  .snav-item{
+    color:rgba(255,255,255,.85) !important;
+    border-radius:0 !important;
+    padding:8px 20px !important;
+    font-size:13px !important;
+    font-weight:700 !important;
+    letter-spacing:1px !important;
+    text-transform:uppercase !important;
+    border-bottom:3px solid transparent !important;
+    white-space:nowrap !important;
+  }
+  .snav-item:hover{
+    background:rgba(0,0,0,.15) !important;
+    color:#fff !important;
+  }
+  .snav-item.active{
+    background:rgba(0,0,0,.2) !important;
+    color:#fff !important;
+    border-bottom:3px solid #fff !important;
+  }
+  .snav-icon{display:none !important}
+  .home-content{
+    margin-left:0 !important;
+    padding-top:112px !important;
+  }
+  #pods,#products,#searchscreen,#wish,#faq{
+    margin-left:0 !important;
+    padding-top:112px !important;
+  }
+  .header{padding-left:24px !important;padding-right:24px !important}
+  .pgrid{grid-template-columns:repeat(4,1fr) !important}
+
+  /* Великий заголовок як у Terra Mare */
+  .home-content::before{
+    content:'BROYK SHOP';
+    display:block;
+    text-align:center;
+    font-size:48px;
+    font-weight:900;
+    letter-spacing:8px;
+    color:#1a1008;
+    padding:40px 24px 20px;
+    text-transform:uppercase;
+  }
+}
 
 /* ── BOTTOM NAV ── */
 .bnav{
-  background:#fff !important;
+  background:#f2ede8 !important;
   backdrop-filter:none !important;
-  border-top:2px solid #000 !important;
+  border-top:1px solid #d8d0c8 !important;
 }
-.bni{color:#666 !important}
-.bni.on{color:#cc0000 !important}
-.bni-badge{background:#cc0000 !important;border-radius:0 !important}
+.bni{color:#8a7060 !important}
+.bni.on{color:#cc2200 !important}
+.bni-badge{background:#cc2200 !important;border-radius:0 !important}
 
-/* ── BANNER ── */
-.b0{background:#000 !important}
-.b1{background:#111 !important}
-.b2{background:#1a1a1a !important}
-.bslide button{background:#cc0000 !important;color:#fff !important;border-radius:0 !important}
-.bdot{background:#ccc !important}
-.bdot.on{background:#cc0000 !important}
+/* ── БАНЕРИ ── */
+.b0{background:linear-gradient(135deg,#1a0a00,#3d1500) !important}
+.b1{background:linear-gradient(135deg,#1a0505,#4a0a00) !important}
+.b2{background:linear-gradient(135deg,#0a0a0a,#2a1a00) !important}
+.bslide h3{color:#fff !important}
+.bslide p{color:rgba(255,255,255,.7) !important}
+.bslide button{
+  background:#cc2200 !important;
+  color:#fff !important;
+  border-radius:0 !important;
+  font-weight:700 !important;
+  letter-spacing:1px !important;
+  text-transform:uppercase !important;
+}
+.bdot{background:#d8d0c8 !important;border-radius:50% !important}
+.bdot.on{background:#cc2200 !important}
+.banner-wrap{border-radius:0 !important}
 
 /* ── TIMER BAR ── */
 .timer-bar{
-  background:#f5f5f5 !important;
-  border:2px solid #000 !important;
+  background:#fff8f5 !important;
+  border:1px solid #cc2200 !important;
   border-radius:0 !important;
 }
-.timer-label{color:#cc0000 !important}
-.timer-val{color:#cc0000 !important}
+.timer-label{color:#cc2200 !important}
+.timer-val{color:#cc2200 !important}
 
-/* ── КАТЕГОРІЇ (великі блоки) ── */
-.cats{gap:12px}
-.cat{border-radius:0 !important}
-.c0{background:#000 !important}
-.c1{background:#111 !important}
-.c2{background:#1a1a1a !important}
-.cat-text .t1{font-weight:900;letter-spacing:1px;text-transform:uppercase}
+/* ── КАТЕГОРІЇ МОБІЛЬНІ — КРУГОВІ ── */
+@media(max-width:899px){
+  .cats{
+    flex-direction:row !important;
+    justify-content:center !important;
+    gap:16px !important;
+    padding:16px !important;
+  }
+  .cat{
+    flex:0 0 auto !important;
+    width:100px !important;
+    height:100px !important;
+    border-radius:50% !important;
+    min-height:auto !important;
+    padding:0 !important;
+    align-items:center !important;
+    justify-content:center !important;
+    flex-direction:column !important;
+    text-align:center !important;
+  }
+  .cat img{display:none !important}
+  .cat-arr{display:none !important}
+  .cat-text .t1{font-size:13px !important;font-weight:900 !important;letter-spacing:.5px !important}
+  .cat-text .t2{display:none !important}
+}
+
+/* ── КАТЕГОРІЇ ДЕСКТОП ── */
+@media(min-width:900px){
+  .cats{
+    flex-direction:row !important;
+    justify-content:center !important;
+    gap:24px !important;
+    padding:20px 24px 32px !important;
+  }
+  .cat{
+    flex:0 0 140px !important;
+    width:140px !important;
+    height:140px !important;
+    border-radius:50% !important;
+    min-height:auto !important;
+    padding:0 !important;
+    align-items:center !important;
+    justify-content:center !important;
+    flex-direction:column !important;
+    text-align:center !important;
+    transition:.2s !important;
+  }
+  .cat:hover{transform:scale(1.05) !important}
+  .cat img{display:none !important}
+  .cat-arr{display:none !important}
+  .cat-text .t1{font-size:15px !important;font-weight:900 !important;letter-spacing:1px !important}
+  .cat-text .t2{font-size:11px !important;color:rgba(255,255,255,.7) !important}
+}
 
 /* ── SUBCATS ── */
 .subcat{
-  background:#f5f5f5 !important;
+  background:#ede8e2 !important;
   border-radius:0 !important;
-  border-left:3px solid #cc0000 !important;
+  border-left:3px solid #cc2200 !important;
+  border-bottom:1px solid #d8d0c8 !important;
 }
-.subcat .t1{color:#000 !important;font-weight:700}
-.subcat .t2{color:#666 !important}
-.subcat-arr{color:#cc0000 !important}
+.subcat .t1{color:#1a1008 !important;font-weight:700}
+.subcat .t2{color:#8a7060 !important}
+.subcat-arr{color:#cc2200 !important}
 
 /* ── КАРТКИ ТОВАРІВ ── */
 .card{
   background:#fff !important;
-  border:2px solid #000 !important;
+  border:1px solid #d8d0c8 !important;
   border-radius:0 !important;
-  box-shadow:none !important;
+  box-shadow:0 2px 8px rgba(0,0,0,.06) !important;
 }
-.card-img-wrap{background:#f5f5f5 !important;border-radius:0 !important}
-.card-name{color:#000 !important;font-weight:700}
-.card-price{color:#cc0000 !important;font-weight:900}
+.card-img-wrap{background:#f5f0eb !important;border-radius:0 !important}
+.card-name{color:#1a1008 !important;font-weight:700}
+.card-price{color:#cc2200 !important;font-weight:900}
 .card-buy{
-  background:#000 !important;
+  background:#1a1008 !important;
   color:#fff !important;
   border-radius:0 !important;
   border:none !important;
@@ -746,73 +876,66 @@ html,body{background:#fff !important;color:#000 !important}
   text-transform:uppercase;
   box-shadow:none !important;
 }
-.card-buy:hover{background:#cc0000 !important;transform:none !important}
-.card-wish{background:rgba(0,0,0,.1) !important;color:#000 !important;border-radius:0 !important}
-.card-wish.on{color:#cc0000 !important}
+.card-buy:hover{background:#cc2200 !important;transform:none !important}
+.card-wish{background:rgba(242,237,232,.9) !important;color:#8a7060 !important;border-radius:50% !important}
+.card-wish.on{color:#cc2200 !important}
 .badge{border-radius:0 !important;font-weight:900}
-.b-hit{background:#cc0000 !important;color:#fff !important}
-.b-new{background:#000 !important;color:#fff !important}
+.b-hit{background:#cc2200 !important;color:#fff !important}
+.b-new{background:#1a1008 !important;color:#fff !important}
 
 /* ── СЕКЦІЇ ── */
-.sec{margin:32px 0}
 .sec-title{
-  font-size:16px !important;
+  font-size:22px !important;
   font-weight:900 !important;
-  letter-spacing:2px !important;
+  letter-spacing:3px !important;
   text-transform:uppercase !important;
-  color:#000 !important;
-  border-left:4px solid #cc0000;
-  padding-left:12px;
+  color:#1a1008 !important;
+  border-left:none !important;
+  padding-left:0 !important;
+}
+@media(min-width:900px){
+  .sec-title{text-align:center;font-size:28px !important}
+  .sec-head{justify-content:center !important}
 }
 
 /* ── REC CARDS ── */
-.rec-card{background:#f5f5f5 !important;border-radius:0 !important;border:2px solid #000}
-.rec-card img{background:#fff !important}
-.rec-name{color:#000 !important}
-.rec-price{color:#cc0000 !important;font-weight:900}
-.rec-hit{background:#cc0000 !important;color:#fff !important;border-radius:0 !important}
+.rec-card{background:#fff !important;border-radius:0 !important;border:1px solid #d8d0c8}
+.rec-card img{background:#f5f0eb !important}
+.rec-name{color:#1a1008 !important;font-weight:600}
+.rec-price{color:#cc2200 !important;font-weight:900}
+.rec-hit{background:#cc2200 !important;color:#fff !important;border-radius:0 !important}
 
-/* ── FILTER BUTTONS ── */
-.fbtn{background:#f0f0f0 !important;color:#333 !important;border-radius:0 !important}
-.fbtn.on{background:#000 !important;color:#fff !important}
+/* ── FILTER ── */
+.fbtn{background:#ede8e2 !important;color:#3d2e1e !important;border-radius:0 !important;border:1px solid #d8d0c8 !important}
+.fbtn.on{background:#1a1008 !important;color:#fff !important;border-color:#1a1008 !important}
 
-/* ── SEARCH INPUT ── */
-.sinput{background:#f0f0f0 !important;border-radius:0 !important;color:#000 !important;border:2px solid #000 !important}
-.sinput:focus{box-shadow:0 0 0 2px #cc0000 !important}
+/* ── SEARCH ── */
+.sinput{background:#fff !important;border-radius:0 !important;color:#1a1008 !important;border:1px solid #d8d0c8 !important}
+.sinput:focus{box-shadow:0 0 0 2px #cc2200 !important;border-color:#cc2200 !important}
 
 /* ── BACK BUTTON ── */
-.back-btn{color:#cc0000 !important;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.back-btn{color:#cc2200 !important;font-weight:700;text-transform:uppercase;letter-spacing:1px}
 
-/* ── DETAIL PANEL ── */
-#detail{background:#fff !important;backdrop-filter:none !important}
-.detail-inner{background:#fff !important;border-radius:0 !important;border:2px solid #000}
-.gal-wrap{background:#f5f5f5 !important}
-.gal-back{background:rgba(0,0,0,.8) !important;border-radius:0 !important;color:#fff !important}
-.gal-wish{background:rgba(0,0,0,.8) !important;border-radius:0 !important}
-.gal-wish.on{color:#cc0000 !important}
-.gdot{background:#ccc !important;border-radius:0 !important}
-.gdot.on{background:#cc0000 !important}
-.d-name{color:#000 !important;font-weight:900;letter-spacing:.5px}
-.d-price{color:#cc0000 !important;font-weight:900}
-.info-box{
-  background:#f5f5f5 !important;
-  border-radius:0 !important;
-  border-left:3px solid #cc0000 !important;
-}
-.info-lbl{color:#000 !important;font-weight:700;text-transform:uppercase;letter-spacing:.5px;font-size:11px !important}
-.spec-row{border-bottom:1px solid #ddd !important}
-.sk{color:#666 !important}
-.sv{color:#000 !important;font-weight:700}
-.qty-btn{
-  background:#000 !important;
-  color:#fff !important;
-  border-radius:0 !important;
-}
-.qty-num{color:#000 !important}
-.qty-sub{color:#666 !important}
-.star{color:#cc0000 !important}
+/* ── DETAIL ── */
+#detail{background:#f2ede8 !important}
+.detail-inner{background:#fff !important;border-radius:0 !important;border:1px solid #d8d0c8 !important}
+.gal-wrap{background:#f5f0eb !important}
+.gal-back,.gal-wish{background:rgba(242,237,232,.95) !important;border-radius:50% !important;color:#1a1008 !important;border:1px solid #d8d0c8 !important}
+.gal-wish.on{color:#cc2200 !important}
+.gdot{background:#d8d0c8 !important;border-radius:50% !important}
+.gdot.on{background:#cc2200 !important}
+.d-name{color:#1a1008 !important;font-weight:900;letter-spacing:.5px}
+.d-price{color:#cc2200 !important;font-weight:900}
+.info-box{background:#f5f0eb !important;border-radius:0 !important;border-left:3px solid #cc2200 !important}
+.info-lbl{color:#8a7060 !important;font-weight:700;text-transform:uppercase;letter-spacing:.5px;font-size:11px !important}
+.spec-row{border-bottom:1px solid #e5dfd8 !important}
+.sk{color:#8a7060 !important}
+.sv{color:#1a1008 !important;font-weight:700}
+.qty-btn{background:#1a1008 !important;color:#fff !important;border-radius:0 !important}
+.qty-num{color:#1a1008 !important}
+.star{color:#cc2200 !important}
 .d-add-btn{
-  background:#cc0000 !important;
+  background:#cc2200 !important;
   color:#fff !important;
   border-radius:0 !important;
   font-weight:900;
@@ -824,254 +947,131 @@ html,body{background:#fff !important;color:#000 !important}
 .d-add-btn::after{display:none !important}
 
 /* ── ВІДГУКИ ── */
-.rev-item{border-bottom:1px solid #ddd !important}
-.rev-author{color:#000 !important;font-weight:700}
-.rev-text{color:#333 !important}
-.rev-date{color:#999 !important}
-.ainput{
-  background:#f0f0f0 !important;
-  border:2px solid #000 !important;
-  border-radius:0 !important;
-  color:#000 !important;
-}
-.ainput:focus{box-shadow:0 0 0 2px #cc0000 !important}
+.rev-item{border-bottom:1px solid #e5dfd8 !important}
+.rev-author{color:#1a1008 !important}
+.rev-text{color:#3d2e1e !important}
+.rev-date{color:#8a7060 !important}
+.ainput{background:#fff !important;border:1px solid #d8d0c8 !important;border-radius:0 !important;color:#1a1008 !important}
 
 /* ── SIM CARDS ── */
-.sim-card{background:#f5f5f5 !important;border-radius:0 !important}
-.sim-card img{background:#fff !important}
-.sim-name{color:#000 !important}
-.sim-price{color:#cc0000 !important;font-weight:900}
+.sim-card{background:#fff !important;border-radius:0 !important;border:1px solid #d8d0c8}
+.sim-card img{background:#f5f0eb !important}
+.sim-name{color:#1a1008 !important}
+.sim-price{color:#cc2200 !important;font-weight:900}
 
 /* ── ZOOM ── */
-#zoom{background:rgba(255,255,255,.97) !important}
-#zoom img{border:2px solid #000}
+#zoom{background:rgba(26,16,8,.97) !important}
 
 /* ── КОШИК ── */
-#cart{background:#fff !important}
-.cart-head h2{color:#000 !important;font-weight:900;text-transform:uppercase;letter-spacing:1px}
-.cart-x{color:#666 !important}
-.citem{background:#f5f5f5 !important;border-radius:0 !important;border-left:3px solid #000}
-.ci-name{color:#000 !important;font-weight:700}
-.ci-price{color:#cc0000 !important;font-weight:900}
-.ci-btn{
-  background:#f0f0f0 !important;
-  border:2px solid #000 !important;
-  border-radius:0 !important;
-  color:#000 !important;
-}
-.ci-btn:hover{background:#000 !important;color:#fff !important;transform:none !important}
-.ci-btn:active{background:#cc0000 !important;border-radius:0 !important}
-.ci-qty{color:#000 !important}
-.ci-del{background:#f5f5f5 !important;color:#cc0000 !important;border-radius:0 !important}
-.cart-total{color:#000 !important;font-weight:900}
-.ship-bar{background:#f5f5f5 !important;border-radius:0 !important}
-.ship-lbl{color:#333 !important}
-.ship-track{background:#ddd !important;border-radius:0 !important}
-.ship-fill{background:#cc0000 !important;border-radius:0 !important}
-.min-warn{border-radius:0 !important;border:2px solid #cc0000 !important;background:#fff !important;color:#cc0000 !important}
-.sec-lbl{color:#999 !important}
-.promo-inp{
-  background:#f0f0f0 !important;
-  border:2px solid #000 !important;
-  border-radius:0 !important;
-  color:#000 !important;
-}
-.promo-inp:focus{border-color:#cc0000 !important;box-shadow:none !important}
-.promo-btn{
-  background:#000 !important;
-  color:#fff !important;
-  border-radius:0 !important;
-  font-weight:700;
-}
-.dtab{
-  background:#f0f0f0 !important;
-  color:#333 !important;
-  border-radius:0 !important;
-  border:2px solid #000 !important;
-}
-.dtab.on{
-  background:#000 !important;
-  color:#fff !important;
-  border-color:#000 !important;
-}
-.cinput{
-  background:#f0f0f0 !important;
-  border:2px solid #000 !important;
-  border-radius:0 !important;
-  color:#000 !important;
-}
-.cinput:focus{border-color:#cc0000 !important;box-shadow:none !important;background:#fff !important}
-#clist,#blist{background:#f5f5f5 !important;border-radius:0 !important;border:2px solid #000}
-#clist div,#blist div{border-bottom:1px solid #ddd !important;color:#000 !important}
-.pp{
-  background:#f5f5f5 !important;
-  border-radius:0 !important;
-  border:2px solid #ddd !important;
-  color:#000 !important;
-}
-.pp.on{border-color:#cc0000 !important;background:#fff5f5 !important}
-.tchip{
-  background:#f0f0f0 !important;
-  border-radius:0 !important;
-  color:#000 !important;
-  border:2px solid transparent !important;
-}
-.tchip.on{
-  background:#cc0000 !important;
-  color:#fff !important;
-  border-color:#cc0000 !important;
-}
-.save-row{color:#666 !important}
-.order-btn{
-  background:#cc0000 !important;
-  color:#fff !important;
-  border-radius:0 !important;
-  font-weight:900;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-.close-btn{
-  background:#f0f0f0 !important;
-  color:#000 !important;
-  border-radius:0 !important;
-  border:2px solid #000 !important;
-}
+#cart{background:#f2ede8 !important}
+.cart-head h2{color:#1a1008 !important;font-weight:900;text-transform:uppercase;letter-spacing:2px}
+.cart-x{color:#8a7060 !important}
+.citem{background:#fff !important;border-radius:0 !important;border:1px solid #d8d0c8 !important;border-left:3px solid #cc2200 !important}
+.ci-name{color:#1a1008 !important;font-weight:700}
+.ci-price{color:#cc2200 !important;font-weight:900}
+.ci-btn{background:#ede8e2 !important;border:1px solid #d8d0c8 !important;border-radius:0 !important;color:#1a1008 !important}
+.ci-btn:hover{background:#1a1008 !important;color:#fff !important;transform:none !important}
+.ci-qty{color:#1a1008 !important}
+.ci-del{background:#fff5f5 !important;color:#cc2200 !important;border-radius:0 !important}
+.cart-total{color:#1a1008 !important}
+.ship-bar{background:#fff !important;border-radius:0 !important;border:1px solid #d8d0c8}
+.ship-lbl{color:#3d2e1e !important}
+.ship-track{background:#e5dfd8 !important;border-radius:0 !important}
+.ship-fill{background:#cc2200 !important;border-radius:0 !important}
+.min-warn{border-radius:0 !important;border:1px solid #cc2200 !important;background:#fff !important;color:#cc2200 !important}
+.sec-lbl{color:#8a7060 !important}
+.promo-inp{background:#fff !important;border:1px solid #d8d0c8 !important;border-radius:0 !important;color:#1a1008 !important}
+.promo-btn{background:#1a1008 !important;color:#fff !important;border-radius:0 !important;font-weight:700}
+.dtab{background:#ede8e2 !important;color:#3d2e1e !important;border-radius:0 !important;border:1px solid #d8d0c8 !important}
+.dtab.on{background:#1a1008 !important;color:#fff !important;border-color:#1a1008 !important}
+.cinput{background:#fff !important;border:1px solid #d8d0c8 !important;border-radius:0 !important;color:#1a1008 !important}
+#clist,#blist{background:#fff !important;border-radius:0 !important;border:1px solid #d8d0c8}
+#clist div,#blist div{border-bottom:1px solid #e5dfd8 !important;color:#1a1008 !important}
+.pp{background:#fff !important;border-radius:0 !important;border:1px solid #d8d0c8 !important;color:#1a1008 !important}
+.pp.on{border-color:#cc2200 !important;background:#fff8f5 !important}
+.tchip{background:#ede8e2 !important;border-radius:0 !important;color:#1a1008 !important;border:1px solid transparent !important}
+.tchip.on{background:#cc2200 !important;color:#fff !important}
+.order-btn{background:#cc2200 !important;color:#fff !important;border-radius:0 !important;font-weight:900;letter-spacing:2px;text-transform:uppercase}
+.close-btn{background:#ede8e2 !important;color:#1a1008 !important;border-radius:0 !important;border:1px solid #d8d0c8 !important}
 
 /* ── МЕНЮ ── */
-#menu{
-  background:#fff !important;
-  border:2px solid #000 !important;
-  border-radius:0 !important;
-  box-shadow:none !important;
-}
-.mi{color:#000 !important;border-radius:0 !important}
-.mi:active{background:#f0f0f0 !important}
+#menu{background:#fff !important;border:1px solid #d8d0c8 !important;border-radius:0 !important;box-shadow:0 8px 24px rgba(0,0,0,.1) !important}
+.mi{color:#1a1008 !important;border-radius:0 !important;font-weight:600}
+.mi:active{background:#f5f0eb !important}
 
 /* ── TOAST ── */
-.toast{
-  background:#000 !important;
-  color:#fff !important;
-  border-radius:0 !important;
-  font-weight:700;
-}
+.toast{background:#1a1008 !important;color:#fff !important;border-radius:0 !important;font-weight:700}
 
 /* ── FOOTER ── */
-.footer{background:#f5f5f5 !important;border-top:2px solid #000 !important}
-.footer-logo{color:#000 !important;font-weight:900;text-transform:uppercase;letter-spacing:2px}
-.footer-logo span{color:#cc0000 !important}
-.footer-sub{color:#666 !important}
-.footer-links a{color:#333 !important}
-.footer-btn{
-  background:#000 !important;
-  color:#fff !important;
-  border-radius:0 !important;
-}
-.footer-copy{color:#999 !important}
+.footer{background:#1a1008 !important;border-top:none !important}
+.footer-logo{color:#fff !important;font-weight:900;text-transform:uppercase;letter-spacing:3px}
+.footer-logo span{color:#cc2200 !important}
+.footer-sub{color:rgba(255,255,255,.5) !important}
+.footer-links a{color:rgba(255,255,255,.7) !important}
+.footer-btn{background:rgba(255,255,255,.1) !important;color:#fff !important;border-radius:0 !important;border:1px solid rgba(255,255,255,.2) !important}
+.footer-copy{color:rgba(255,255,255,.3) !important}
 
 /* ── AGE MODAL ── */
-#age{background:rgba(0,0,0,.85) !important}
-.age-box{
-  background:#fff !important;
-  border:2px solid #000 !important;
-  border-radius:0 !important;
-  box-shadow:none !important;
-}
-.age-title{color:#000 !important;font-weight:900;text-transform:uppercase;letter-spacing:1px}
-.age-sub{color:#666 !important}
-.age-yes{
-  background:#cc0000 !important;
-  color:#fff !important;
-  border-radius:0 !important;
-  font-weight:900;
-  letter-spacing:1px;
-}
-.age-no{
-  background:#fff !important;
-  color:#000 !important;
-  border:2px solid #000 !important;
-  border-radius:0 !important;
-}
-.age-brand{color:#999 !important}
+#age{background:rgba(26,16,8,.9) !important}
+.age-box{background:#fff !important;border:1px solid #d8d0c8 !important;border-radius:0 !important;box-shadow:0 24px 60px rgba(0,0,0,.2) !important}
+.age-title{color:#1a1008 !important;font-weight:900;text-transform:uppercase;letter-spacing:2px}
+.age-sub{color:#8a7060 !important}
+.age-yes{background:#cc2200 !important;color:#fff !important;border-radius:0 !important;font-weight:900;letter-spacing:1px}
+.age-no{background:#fff !important;color:#1a1008 !important;border:1px solid #d8d0c8 !important;border-radius:0 !important}
+.age-brand{color:#8a7060 !important}
 
 /* ── AUTH ── */
-#auth{background:#fff !important}
-.auth-title{color:#000 !important;font-weight:900;text-transform:uppercase;letter-spacing:1px}
-.auth-sub{color:#666 !important}
-.a-main{
-  background:#cc0000 !important;
-  color:#fff !important;
-  border-radius:0 !important;
-  font-weight:900;
-  letter-spacing:1px;
-}
-.a-google{border-radius:0 !important;border:2px solid #000 !important}
-.a-close{
-  background:#f0f0f0 !important;
-  color:#000 !important;
-  border-radius:0 !important;
-  border:2px solid #000 !important;
-}
-.a-sw{color:#666 !important}
-.a-sw span{color:#cc0000 !important}
+#auth{background:#f2ede8 !important}
+.auth-title{color:#1a1008 !important;font-weight:900;text-transform:uppercase;letter-spacing:2px}
+.auth-sub{color:#8a7060 !important}
+.a-main{background:#cc2200 !important;color:#fff !important;border-radius:0 !important;font-weight:900}
+.a-close{background:#ede8e2 !important;color:#1a1008 !important;border-radius:0 !important;border:1px solid #d8d0c8 !important}
+.a-sw span{color:#cc2200 !important}
 
 /* ── ПРОФІЛЬ ── */
-#profile{background:#fff !important}
-.p-avatar{background:#cc0000 !important;border-radius:0 !important}
-.p-name{color:#000 !important;font-weight:900}
-.p-email{color:#666 !important}
-.psec{background:#f5f5f5 !important;border-radius:0 !important}
-.prow{border-bottom:1px solid #ddd !important}
-.prow-lbl{color:#000 !important}
-.prow-val{color:#666 !important}
-.tswitch{background:#ddd !important;border-radius:0 !important}
-.tswitch.on{background:#cc0000 !important}
-.bgchip{border-radius:0 !important}
-.fchip{background:#f0f0f0 !important;color:#000 !important;border-radius:0 !important}
-.fchip.on{border-color:#cc0000 !important;color:#cc0000 !important}
-.nick-inp{background:#f0f0f0 !important;border-radius:0 !important;color:#000 !important}
-.nick-save{background:#cc0000 !important;color:#fff !important;border-radius:0 !important}
-.logout-btn{background:#fff5f5 !important;color:#cc0000 !important;border-radius:0 !important;border:2px solid #cc0000 !important}
-.oh-item{background:#f5f5f5 !important;border-radius:0 !important;border-left:3px solid #cc0000}
-.oh-date{color:#999 !important}
-.oh-goods{color:#333 !important}
-.oh-sum{color:#cc0000 !important;font-weight:900}
-.repeat-btn{background:#000 !important;color:#fff !important;border-radius:0 !important}
+#profile{background:#f2ede8 !important}
+.p-avatar{background:#cc2200 !important;border-radius:50% !important}
+.p-name{color:#1a1008 !important;font-weight:900}
+.p-email{color:#8a7060 !important}
+.psec{background:#fff !important;border-radius:0 !important;border:1px solid #d8d0c8}
+.prow{border-bottom:1px solid #e5dfd8 !important}
+.prow-lbl{color:#1a1008 !important}
+.tswitch{border-radius:0 !important}
+.tswitch.on{background:#cc2200 !important}
+.nick-inp{background:#f5f0eb !important;border-radius:0 !important;color:#1a1008 !important}
+.nick-save{background:#cc2200 !important;color:#fff !important;border-radius:0 !important}
+.logout-btn{background:#fff5f5 !important;color:#cc2200 !important;border-radius:0 !important;border:1px solid #cc2200 !important}
+.oh-item{background:#fff !important;border-radius:0 !important;border-left:3px solid #cc2200}
+.oh-sum{color:#cc2200 !important;font-weight:900}
+.repeat-btn{background:#1a1008 !important;color:#fff !important;border-radius:0 !important}
 
 /* ── WISH / FAQ ── */
-.fullscreen{background:#fff !important}
-.fs-title{color:#000 !important;font-weight:900;text-transform:uppercase;letter-spacing:1px}
-.faq-item{border-bottom:2px solid #000 !important}
-.faq-q{color:#000 !important;font-weight:700}
-.faq-a{color:#333 !important}
-.empty-state{color:#999 !important}
+.fullscreen{background:#f2ede8 !important}
+.fs-title{color:#1a1008 !important;font-weight:900;text-transform:uppercase;letter-spacing:2px}
+.faq-item{border-bottom:1px solid #d8d0c8 !important}
+.faq-q{color:#1a1008 !important;font-weight:700}
+.faq-a{color:#3d2e1e !important;background:#fff !important;padding:12px 16px !important}
 
 /* ── СКРОЛБАР ── */
 ::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:#fff}
-::-webkit-scrollbar-thumb{background:#000}
-
-/* ── MASCOT ── */
-#mascot-wrap{filter:drop-shadow(0 8px 20px rgba(0,0,0,.3)) !important}
+::-webkit-scrollbar-track{background:#f2ede8}
+::-webkit-scrollbar-thumb{background:#cc2200}
 
 /* ── SEO БЛОК ── */
 #home [style*="background:var(--bg3)"]{
-  background:#f5f5f5 !important;
+  background:#ede8e2 !important;
   border-radius:0 !important;
-  border-left:4px solid #cc0000 !important;
+  border-left:4px solid #cc2200 !important;
 }
 
 /* ── TELEGRAM КНОПКА ── */
 a[href*="t.me"][style*="position:fixed"]{
-  background:#cc0000 !important;
+  background:#cc2200 !important;
   border-radius:0 !important;
   box-shadow:none !important;
   animation:none !important;
 }
-
-/* ── CONFETTI КОЛЬОРИ ── */
-/* залишаємо як є — короткочасна анімація */
-
-/* ══ /TERRA MARE ══ */
+/* ══ /TERRA MARE v2 ══ */
   
 </style>
 </head>
