@@ -1080,6 +1080,58 @@ a[href*="t.me"][style*="position:fixed"]{
   animation:none !important;
 }
 /* ══ /TERRA MARE v2 ══ */
+/* ── М'ЯКІ КАРТКИ БЕЗ ФОНУ ── */
+.card{
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+}
+.card:hover{
+  transform:translateY(-4px) !important;
+  transition:.2s !important;
+}
+.card-img-wrap{
+  background:#fff !important;
+  border-radius:12px !important;
+  box-shadow:0 2px 12px rgba(0,0,0,.08) !important;
+  overflow:hidden !important;
+}
+.card-body{padding:10px 4px !important}
+.card-name{
+  color:#1a1008 !important;
+  font-size:13px !important;
+  font-weight:600 !important;
+}
+.card-price{
+  color:#cc2200 !important;
+  font-size:18px !important;
+  font-weight:900 !important;
+}
+.card-buy{
+  background:transparent !important;
+  color:#1a1008 !important;
+  border:2px solid #1a1008 !important;
+  font-size:12px !important;
+  padding:8px !important;
+  transition:.2s !important;
+}
+.card-buy:hover{
+  background:#1a1008 !important;
+  color:#fff !important;
+}
+.b-hit{background:#cc2200 !important;border-radius:4px !important}
+.b-new{background:#1a1008 !important;border-radius:4px !important}
+
+/* ── СЕКЦІЯ "НАЙЧАСТІШЕ ЗАМОВЛЯЮТЬ" ── */
+.hits-section-title{
+  text-align:center;
+  font-size:26px;
+  font-weight:900;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:#1a1008;
+  padding:32px 24px 20px;
+}
   
 </style>
 </head>
@@ -1228,7 +1280,7 @@ a[href*="t.me"][style*="position:fixed"]{
 <!-- /SEO ТЕКСТ БЛОК -->
     
   <div class="sec">
-    <div class="sec-head"><div class="sec-title">🔥 Рекомендуємо</div></div>
+    <div class="sec-title">НАЙЧАСТІШЕ ЗАМОВЛЯЮТЬ</div>
     <div class="hscroll" id="hits-scroll"></div>
   </div>
 
