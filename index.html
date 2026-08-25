@@ -634,15 +634,15 @@ body.light .header,.body.light .bnav{background:rgba(242,242,247,.92)}
   #mascot-wrap{bottom:24px;right:24px;width:140px}
 }
 
-/* ══ TERRA MARE REDESIGN ══ */
+/* ══ TERRA MARE REDESIGN — ПРАВИЛЬНИЙ ══ */
 :root{
   --bg:#ffffff;
   --bg2:#f5f5f5;
   --bg3:#f0f0f0;
-  --bg4:#e8e8e8;
+  --bg4:#e0e0e0;
   --text:#000000;
   --t2:#333333;
-  --t3:#666666;
+  --t3:#777777;
   --green:#cc0000;
   --green2:#aa0000;
   --red:#cc0000;
@@ -652,114 +652,337 @@ body.light .header,.body.light .bnav{background:rgba(242,242,247,.92)}
   --r2:0px;
 }
 
-/* База */
-body{background:#fff;color:#000}
-html{background:#fff}
+/* ── БАЗА ── */
+html,body{background:#fff !important;color:#000 !important}
 
-/* Хедер */
+/* ── SPLASH ── */
+#splash{background:#fff !important}
+.sp-name{color:#cc0000 !important}
+.sp-sub{color:#666 !important}
+
+/* ── HEADER ── */
 .header{
   background:#fff !important;
-  border-bottom:2px solid #000;
   backdrop-filter:none !important;
   -webkit-backdrop-filter:none !important;
-  padding:0 20px;
-  height:56px;
+  border-bottom:2px solid #000 !important;
 }
-.logo{
-  font-size:20px;
-  font-weight:900;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  color:#000 !important;
-}
-.logo span{color:#cc0000 !important}
+.h-logo{color:#000 !important;letter-spacing:3px;text-transform:uppercase;font-weight:900}
+.h-logo span{color:#cc0000 !important}
+.hbtn{background:#f0f0f0 !important;color:#000 !important;border-radius:0 !important}
+.cart-hbtn{background:#cc0000 !important;color:#fff !important;border-radius:0 !important}
 
-/* Нижня навігація */
+/* ── SIDEBAR ── */
+.home-sidebar{background:#f5f5f5 !important;border-right:2px solid #000 !important}
+.sidebar-logo{color:#000 !important;border-bottom:2px solid #000 !important}
+.sidebar-logo span{color:#cc0000 !important}
+.snav-item{color:#333 !important;border-radius:0 !important}
+.snav-item:hover{background:#e0e0e0 !important;color:#000 !important}
+.snav-item.active{background:#cc0000 !important;color:#fff !important}
+.sidebar-section{color:#999 !important}
+
+/* ── BOTTOM NAV ── */
 .bnav{
   background:#fff !important;
-  border-top:2px solid #000;
   backdrop-filter:none !important;
+  border-top:2px solid #000 !important;
 }
-.bnav-item{color:#000 !important}
-.bnav-item.active{color:#cc0000 !important}
-.bnav-item.active svg,.bnav-item.active .bnav-lbl{color:#cc0000 !important}
-.bnav-icon svg{stroke:#000}
-.bnav-item.active .bnav-icon svg{stroke:#cc0000}
+.bni{color:#666 !important}
+.bni.on{color:#cc0000 !important}
+.bni-badge{background:#cc0000 !important;border-radius:0 !important}
 
-/* Категорії */
-.cats{padding:24px 20px 8px;gap:8px}
-.cat-btn{
-  background:#fff !important;
+/* ── BANNER ── */
+.b0{background:#000 !important}
+.b1{background:#111 !important}
+.b2{background:#1a1a1a !important}
+.bslide button{background:#cc0000 !important;color:#fff !important;border-radius:0 !important}
+.bdot{background:#ccc !important}
+.bdot.on{background:#cc0000 !important}
+
+/* ── TIMER BAR ── */
+.timer-bar{
+  background:#f5f5f5 !important;
   border:2px solid #000 !important;
   border-radius:0 !important;
-  color:#000 !important;
-  font-weight:700;
-  font-size:12px;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  padding:10px 16px;
 }
-.cat-btn.active{
-  background:#000 !important;
-  color:#fff !important;
-  border-color:#000 !important;
-}
+.timer-label{color:#cc0000 !important}
+.timer-val{color:#cc0000 !important}
 
-/* Картки товарів */
+/* ── КАТЕГОРІЇ (великі блоки) ── */
+.cats{gap:12px}
+.cat{border-radius:0 !important}
+.c0{background:#000 !important}
+.c1{background:#111 !important}
+.c2{background:#1a1a1a !important}
+.cat-text .t1{font-weight:900;letter-spacing:1px;text-transform:uppercase}
+
+/* ── SUBCATS ── */
+.subcat{
+  background:#f5f5f5 !important;
+  border-radius:0 !important;
+  border-left:3px solid #cc0000 !important;
+}
+.subcat .t1{color:#000 !important;font-weight:700}
+.subcat .t2{color:#666 !important}
+.subcat-arr{color:#cc0000 !important}
+
+/* ── КАРТКИ ТОВАРІВ ── */
 .card{
   background:#fff !important;
   border:2px solid #000 !important;
   border-radius:0 !important;
   box-shadow:none !important;
 }
-.card-img{border-radius:0 !important;background:#f5f5f5 !important}
-.card-name{font-weight:700;color:#000 !important;font-size:13px;letter-spacing:.3px}
-.card-price{color:#cc0000 !important;font-weight:900;font-size:15px}
-.card-add{
-  background:#cc0000 !important;
+.card-img-wrap{background:#f5f5f5 !important;border-radius:0 !important}
+.card-name{color:#000 !important;font-weight:700}
+.card-price{color:#cc0000 !important;font-weight:900}
+.card-buy{
+  background:#000 !important;
   color:#fff !important;
   border-radius:0 !important;
+  border:none !important;
   font-weight:700;
   letter-spacing:1px;
   text-transform:uppercase;
-  font-size:11px;
-  border:none !important;
+  box-shadow:none !important;
 }
-.badge{border-radius:0 !important}
-.badge.b-hit{background:#cc0000 !important;color:#fff !important}
-.badge.b-new{background:#000 !important;color:#fff !important}
+.card-buy:hover{background:#cc0000 !important;transform:none !important}
+.card-wish{background:rgba(0,0,0,.1) !important;color:#000 !important;border-radius:0 !important}
+.card-wish.on{color:#cc0000 !important}
+.badge{border-radius:0 !important;font-weight:900}
+.b-hit{background:#cc0000 !important;color:#fff !important}
+.b-new{background:#000 !important;color:#fff !important}
 
-/* Секції */
+/* ── СЕКЦІЇ ── */
 .sec{margin:32px 0}
 .sec-title{
-  font-size:18px;
-  font-weight:900;
-  letter-spacing:2px;
-  text-transform:uppercase;
+  font-size:16px !important;
+  font-weight:900 !important;
+  letter-spacing:2px !important;
+  text-transform:uppercase !important;
   color:#000 !important;
   border-left:4px solid #cc0000;
   padding-left:12px;
 }
-.sec-head{padding:0 20px 16px}
 
-/* Splash */
-#splash{background:#fff !important}
-#splash svg path{fill:#cc0000 !important}
-.splash-logo{color:#000 !important;font-weight:900;letter-spacing:4px}
+/* ── REC CARDS ── */
+.rec-card{background:#f5f5f5 !important;border-radius:0 !important;border:2px solid #000}
+.rec-card img{background:#fff !important}
+.rec-name{color:#000 !important}
+.rec-price{color:#cc0000 !important;font-weight:900}
+.rec-hit{background:#cc0000 !important;color:#fff !important;border-radius:0 !important}
 
-/* Age modal */
+/* ── FILTER BUTTONS ── */
+.fbtn{background:#f0f0f0 !important;color:#333 !important;border-radius:0 !important}
+.fbtn.on{background:#000 !important;color:#fff !important}
+
+/* ── SEARCH INPUT ── */
+.sinput{background:#f0f0f0 !important;border-radius:0 !important;color:#000 !important;border:2px solid #000 !important}
+.sinput:focus{box-shadow:0 0 0 2px #cc0000 !important}
+
+/* ── BACK BUTTON ── */
+.back-btn{color:#cc0000 !important;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+/* ── DETAIL PANEL ── */
+#detail{background:#fff !important;backdrop-filter:none !important}
+.detail-inner{background:#fff !important;border-radius:0 !important;border:2px solid #000}
+.gal-wrap{background:#f5f5f5 !important}
+.gal-back{background:rgba(0,0,0,.8) !important;border-radius:0 !important;color:#fff !important}
+.gal-wish{background:rgba(0,0,0,.8) !important;border-radius:0 !important}
+.gal-wish.on{color:#cc0000 !important}
+.gdot{background:#ccc !important;border-radius:0 !important}
+.gdot.on{background:#cc0000 !important}
+.d-name{color:#000 !important;font-weight:900;letter-spacing:.5px}
+.d-price{color:#cc0000 !important;font-weight:900}
+.info-box{
+  background:#f5f5f5 !important;
+  border-radius:0 !important;
+  border-left:3px solid #cc0000 !important;
+}
+.info-lbl{color:#000 !important;font-weight:700;text-transform:uppercase;letter-spacing:.5px;font-size:11px !important}
+.spec-row{border-bottom:1px solid #ddd !important}
+.sk{color:#666 !important}
+.sv{color:#000 !important;font-weight:700}
+.qty-btn{
+  background:#000 !important;
+  color:#fff !important;
+  border-radius:0 !important;
+}
+.qty-num{color:#000 !important}
+.qty-sub{color:#666 !important}
+.star{color:#cc0000 !important}
+.d-add-btn{
+  background:#cc0000 !important;
+  color:#fff !important;
+  border-radius:0 !important;
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  animation:none !important;
+  box-shadow:none !important;
+}
+.d-add-btn::after{display:none !important}
+
+/* ── ВІДГУКИ ── */
+.rev-item{border-bottom:1px solid #ddd !important}
+.rev-author{color:#000 !important;font-weight:700}
+.rev-text{color:#333 !important}
+.rev-date{color:#999 !important}
+.ainput{
+  background:#f0f0f0 !important;
+  border:2px solid #000 !important;
+  border-radius:0 !important;
+  color:#000 !important;
+}
+.ainput:focus{box-shadow:0 0 0 2px #cc0000 !important}
+
+/* ── SIM CARDS ── */
+.sim-card{background:#f5f5f5 !important;border-radius:0 !important}
+.sim-card img{background:#fff !important}
+.sim-name{color:#000 !important}
+.sim-price{color:#cc0000 !important;font-weight:900}
+
+/* ── ZOOM ── */
+#zoom{background:rgba(255,255,255,.97) !important}
+#zoom img{border:2px solid #000}
+
+/* ── КОШИК ── */
+#cart{background:#fff !important}
+.cart-head h2{color:#000 !important;font-weight:900;text-transform:uppercase;letter-spacing:1px}
+.cart-x{color:#666 !important}
+.citem{background:#f5f5f5 !important;border-radius:0 !important;border-left:3px solid #000}
+.ci-name{color:#000 !important;font-weight:700}
+.ci-price{color:#cc0000 !important;font-weight:900}
+.ci-btn{
+  background:#f0f0f0 !important;
+  border:2px solid #000 !important;
+  border-radius:0 !important;
+  color:#000 !important;
+}
+.ci-btn:hover{background:#000 !important;color:#fff !important;transform:none !important}
+.ci-btn:active{background:#cc0000 !important;border-radius:0 !important}
+.ci-qty{color:#000 !important}
+.ci-del{background:#f5f5f5 !important;color:#cc0000 !important;border-radius:0 !important}
+.cart-total{color:#000 !important;font-weight:900}
+.ship-bar{background:#f5f5f5 !important;border-radius:0 !important}
+.ship-lbl{color:#333 !important}
+.ship-track{background:#ddd !important;border-radius:0 !important}
+.ship-fill{background:#cc0000 !important;border-radius:0 !important}
+.min-warn{border-radius:0 !important;border:2px solid #cc0000 !important;background:#fff !important;color:#cc0000 !important}
+.sec-lbl{color:#999 !important}
+.promo-inp{
+  background:#f0f0f0 !important;
+  border:2px solid #000 !important;
+  border-radius:0 !important;
+  color:#000 !important;
+}
+.promo-inp:focus{border-color:#cc0000 !important;box-shadow:none !important}
+.promo-btn{
+  background:#000 !important;
+  color:#fff !important;
+  border-radius:0 !important;
+  font-weight:700;
+}
+.dtab{
+  background:#f0f0f0 !important;
+  color:#333 !important;
+  border-radius:0 !important;
+  border:2px solid #000 !important;
+}
+.dtab.on{
+  background:#000 !important;
+  color:#fff !important;
+  border-color:#000 !important;
+}
+.cinput{
+  background:#f0f0f0 !important;
+  border:2px solid #000 !important;
+  border-radius:0 !important;
+  color:#000 !important;
+}
+.cinput:focus{border-color:#cc0000 !important;box-shadow:none !important;background:#fff !important}
+#clist,#blist{background:#f5f5f5 !important;border-radius:0 !important;border:2px solid #000}
+#clist div,#blist div{border-bottom:1px solid #ddd !important;color:#000 !important}
+.pp{
+  background:#f5f5f5 !important;
+  border-radius:0 !important;
+  border:2px solid #ddd !important;
+  color:#000 !important;
+}
+.pp.on{border-color:#cc0000 !important;background:#fff5f5 !important}
+.tchip{
+  background:#f0f0f0 !important;
+  border-radius:0 !important;
+  color:#000 !important;
+  border:2px solid transparent !important;
+}
+.tchip.on{
+  background:#cc0000 !important;
+  color:#fff !important;
+  border-color:#cc0000 !important;
+}
+.save-row{color:#666 !important}
+.order-btn{
+  background:#cc0000 !important;
+  color:#fff !important;
+  border-radius:0 !important;
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+.close-btn{
+  background:#f0f0f0 !important;
+  color:#000 !important;
+  border-radius:0 !important;
+  border:2px solid #000 !important;
+}
+
+/* ── МЕНЮ ── */
+#menu{
+  background:#fff !important;
+  border:2px solid #000 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+}
+.mi{color:#000 !important;border-radius:0 !important}
+.mi:active{background:#f0f0f0 !important}
+
+/* ── TOAST ── */
+.toast{
+  background:#000 !important;
+  color:#fff !important;
+  border-radius:0 !important;
+  font-weight:700;
+}
+
+/* ── FOOTER ── */
+.footer{background:#f5f5f5 !important;border-top:2px solid #000 !important}
+.footer-logo{color:#000 !important;font-weight:900;text-transform:uppercase;letter-spacing:2px}
+.footer-logo span{color:#cc0000 !important}
+.footer-sub{color:#666 !important}
+.footer-links a{color:#333 !important}
+.footer-btn{
+  background:#000 !important;
+  color:#fff !important;
+  border-radius:0 !important;
+}
+.footer-copy{color:#999 !important}
+
+/* ── AGE MODAL ── */
+#age{background:rgba(0,0,0,.85) !important}
 .age-box{
   background:#fff !important;
   border:2px solid #000 !important;
   border-radius:0 !important;
   box-shadow:none !important;
 }
-.age-title{color:#000 !important;font-weight:900;letter-spacing:2px;text-transform:uppercase}
+.age-title{color:#000 !important;font-weight:900;text-transform:uppercase;letter-spacing:1px}
+.age-sub{color:#666 !important}
 .age-yes{
   background:#cc0000 !important;
   color:#fff !important;
   border-radius:0 !important;
-  font-weight:700;
+  font-weight:900;
   letter-spacing:1px;
 }
 .age-no{
@@ -768,108 +991,86 @@ html{background:#fff}
   border:2px solid #000 !important;
   border-radius:0 !important;
 }
+.age-brand{color:#999 !important}
 
-/* Деталь товару */
-#detail{background:#fff !important}
-.d-name{font-weight:900;font-size:22px;letter-spacing:.5px;color:#000 !important}
-.d-price{color:#cc0000 !important;font-weight:900;font-size:26px}
-.info-box{
-  background:#f5f5f5 !important;
-  border-radius:0 !important;
-  border-left:3px solid #cc0000;
-  margin-bottom:12px;
-}
-.info-lbl{color:#000 !important;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:12px}
-.d-add-btn{
+/* ── AUTH ── */
+#auth{background:#fff !important}
+.auth-title{color:#000 !important;font-weight:900;text-transform:uppercase;letter-spacing:1px}
+.auth-sub{color:#666 !important}
+.a-main{
   background:#cc0000 !important;
   color:#fff !important;
   border-radius:0 !important;
-  font-weight:700;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  font-size:14px;
-  animation:none !important;
-  box-shadow:none !important;
+  font-weight:900;
+  letter-spacing:1px;
 }
-.d-add-btn::after{display:none !important}
-.qty-btn{
-  background:#000 !important;
-  color:#fff !important;
-  border-radius:0 !important;
-}
-.star{color:#cc0000 !important}
-
-/* Кошик */
-#cart-screen{background:#fff !important}
-.cart-item{
-  background:#f5f5f5 !important;
-  border-radius:0 !important;
-  border-left:3px solid #000;
-}
-.order-btn{
-  background:#cc0000 !important;
-  color:#fff !important;
-  border-radius:0 !important;
-  font-weight:700;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-.promo-btn{
-  background:#000 !important;
-  color:#fff !important;
-  border-radius:0 !important;
-}
-
-/* Пошук */
-#search-screen{background:#fff !important}
-.ainput{
-  background:#f5f5f5 !important;
-  border:2px solid #000 !important;
-  border-radius:0 !important;
+.a-google{border-radius:0 !important;border:2px solid #000 !important}
+.a-close{
+  background:#f0f0f0 !important;
   color:#000 !important;
-}
-
-/* Toast */
-.toast{
-  background:#000 !important;
-  color:#fff !important;
   border-radius:0 !important;
-  font-weight:700;
-  letter-spacing:.5px;
+  border:2px solid #000 !important;
 }
+.a-sw{color:#666 !important}
+.a-sw span{color:#cc0000 !important}
 
-/* Telegram кнопка */
-a[href*="t.me"]{
-  background:#cc0000 !important;
-  border-radius:0 !important;
-  box-shadow:none !important;
-  animation:none !important;
-}
+/* ── ПРОФІЛЬ ── */
+#profile{background:#fff !important}
+.p-avatar{background:#cc0000 !important;border-radius:0 !important}
+.p-name{color:#000 !important;font-weight:900}
+.p-email{color:#666 !important}
+.psec{background:#f5f5f5 !important;border-radius:0 !important}
+.prow{border-bottom:1px solid #ddd !important}
+.prow-lbl{color:#000 !important}
+.prow-val{color:#666 !important}
+.tswitch{background:#ddd !important;border-radius:0 !important}
+.tswitch.on{background:#cc0000 !important}
+.bgchip{border-radius:0 !important}
+.fchip{background:#f0f0f0 !important;color:#000 !important;border-radius:0 !important}
+.fchip.on{border-color:#cc0000 !important;color:#cc0000 !important}
+.nick-inp{background:#f0f0f0 !important;border-radius:0 !important;color:#000 !important}
+.nick-save{background:#cc0000 !important;color:#fff !important;border-radius:0 !important}
+.logout-btn{background:#fff5f5 !important;color:#cc0000 !important;border-radius:0 !important;border:2px solid #cc0000 !important}
+.oh-item{background:#f5f5f5 !important;border-radius:0 !important;border-left:3px solid #cc0000}
+.oh-date{color:#999 !important}
+.oh-goods{color:#333 !important}
+.oh-sum{color:#cc0000 !important;font-weight:900}
+.repeat-btn{background:#000 !important;color:#fff !important;border-radius:0 !important}
 
-/* Скролбар */
+/* ── WISH / FAQ ── */
+.fullscreen{background:#fff !important}
+.fs-title{color:#000 !important;font-weight:900;text-transform:uppercase;letter-spacing:1px}
+.faq-item{border-bottom:2px solid #000 !important}
+.faq-q{color:#000 !important;font-weight:700}
+.faq-a{color:#333 !important}
+.empty-state{color:#999 !important}
+
+/* ── СКРОЛБАР ── */
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:#fff}
 ::-webkit-scrollbar-thumb{background:#000}
 
-/* Відгуки */
-.rev-item{
+/* ── MASCOT ── */
+#mascot-wrap{filter:drop-shadow(0 8px 20px rgba(0,0,0,.3)) !important}
+
+/* ── SEO БЛОК ── */
+#home [style*="background:var(--bg3)"]{
   background:#f5f5f5 !important;
   border-radius:0 !important;
-  border-left:3px solid #cc0000;
+  border-left:4px solid #cc0000 !important;
 }
 
-/* Бейдж кошика */
-.cart-badge{
+/* ── TELEGRAM КНОПКА ── */
+a[href*="t.me"][style*="position:fixed"]{
   background:#cc0000 !important;
   border-radius:0 !important;
+  box-shadow:none !important;
+  animation:none !important;
 }
 
-/* Zoom */
-#zoom{background:rgba(255,255,255,.97) !important}
-#zoom img{border:2px solid #000}
+/* ── CONFETTI КОЛЬОРИ ── */
+/* залишаємо як є — короткочасна анімація */
 
-/* SEO блок */
-[style*="bg3"]{background:#f5f5f5 !important}
 /* ══ /TERRA MARE ══ */
   
 </style>
