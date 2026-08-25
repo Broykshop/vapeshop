@@ -633,6 +633,244 @@ body.light .header,.body.light .bnav{background:rgba(242,242,247,.92)}
 @media(min-width:900px){
   #mascot-wrap{bottom:24px;right:24px;width:140px}
 }
+
+/* ══ TERRA MARE REDESIGN ══ */
+:root{
+  --bg:#ffffff;
+  --bg2:#f5f5f5;
+  --bg3:#f0f0f0;
+  --bg4:#e8e8e8;
+  --text:#000000;
+  --t2:#333333;
+  --t3:#666666;
+  --green:#cc0000;
+  --green2:#aa0000;
+  --red:#cc0000;
+  --blue:#cc0000;
+  --orange:#cc0000;
+  --r:0px;
+  --r2:0px;
+}
+
+/* База */
+body{background:#fff;color:#000}
+html{background:#fff}
+
+/* Хедер */
+.header{
+  background:#fff !important;
+  border-bottom:2px solid #000;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+  padding:0 20px;
+  height:56px;
+}
+.logo{
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:#000 !important;
+}
+.logo span{color:#cc0000 !important}
+
+/* Нижня навігація */
+.bnav{
+  background:#fff !important;
+  border-top:2px solid #000;
+  backdrop-filter:none !important;
+}
+.bnav-item{color:#000 !important}
+.bnav-item.active{color:#cc0000 !important}
+.bnav-item.active svg,.bnav-item.active .bnav-lbl{color:#cc0000 !important}
+.bnav-icon svg{stroke:#000}
+.bnav-item.active .bnav-icon svg{stroke:#cc0000}
+
+/* Категорії */
+.cats{padding:24px 20px 8px;gap:8px}
+.cat-btn{
+  background:#fff !important;
+  border:2px solid #000 !important;
+  border-radius:0 !important;
+  color:#000 !important;
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  padding:10px 16px;
+}
+.cat-btn.active{
+  background:#000 !important;
+  color:#fff !important;
+  border-color:#000 !important;
+}
+
+/* Картки товарів */
+.card{
+  background:#fff !important;
+  border:2px solid #000 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+}
+.card-img{border-radius:0 !important;background:#f5f5f5 !important}
+.card-name{font-weight:700;color:#000 !important;font-size:13px;letter-spacing:.3px}
+.card-price{color:#cc0000 !important;font-weight:900;font-size:15px}
+.card-add{
+  background:#cc0000 !important;
+  color:#fff !important;
+  border-radius:0 !important;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  font-size:11px;
+  border:none !important;
+}
+.badge{border-radius:0 !important}
+.badge.b-hit{background:#cc0000 !important;color:#fff !important}
+.badge.b-new{background:#000 !important;color:#fff !important}
+
+/* Секції */
+.sec{margin:32px 0}
+.sec-title{
+  font-size:18px;
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#000 !important;
+  border-left:4px solid #cc0000;
+  padding-left:12px;
+}
+.sec-head{padding:0 20px 16px}
+
+/* Splash */
+#splash{background:#fff !important}
+#splash svg path{fill:#cc0000 !important}
+.splash-logo{color:#000 !important;font-weight:900;letter-spacing:4px}
+
+/* Age modal */
+.age-box{
+  background:#fff !important;
+  border:2px solid #000 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+}
+.age-title{color:#000 !important;font-weight:900;letter-spacing:2px;text-transform:uppercase}
+.age-yes{
+  background:#cc0000 !important;
+  color:#fff !important;
+  border-radius:0 !important;
+  font-weight:700;
+  letter-spacing:1px;
+}
+.age-no{
+  background:#fff !important;
+  color:#000 !important;
+  border:2px solid #000 !important;
+  border-radius:0 !important;
+}
+
+/* Деталь товару */
+#detail{background:#fff !important}
+.d-name{font-weight:900;font-size:22px;letter-spacing:.5px;color:#000 !important}
+.d-price{color:#cc0000 !important;font-weight:900;font-size:26px}
+.info-box{
+  background:#f5f5f5 !important;
+  border-radius:0 !important;
+  border-left:3px solid #cc0000;
+  margin-bottom:12px;
+}
+.info-lbl{color:#000 !important;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:12px}
+.d-add-btn{
+  background:#cc0000 !important;
+  color:#fff !important;
+  border-radius:0 !important;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-size:14px;
+  animation:none !important;
+  box-shadow:none !important;
+}
+.d-add-btn::after{display:none !important}
+.qty-btn{
+  background:#000 !important;
+  color:#fff !important;
+  border-radius:0 !important;
+}
+.star{color:#cc0000 !important}
+
+/* Кошик */
+#cart-screen{background:#fff !important}
+.cart-item{
+  background:#f5f5f5 !important;
+  border-radius:0 !important;
+  border-left:3px solid #000;
+}
+.order-btn{
+  background:#cc0000 !important;
+  color:#fff !important;
+  border-radius:0 !important;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+.promo-btn{
+  background:#000 !important;
+  color:#fff !important;
+  border-radius:0 !important;
+}
+
+/* Пошук */
+#search-screen{background:#fff !important}
+.ainput{
+  background:#f5f5f5 !important;
+  border:2px solid #000 !important;
+  border-radius:0 !important;
+  color:#000 !important;
+}
+
+/* Toast */
+.toast{
+  background:#000 !important;
+  color:#fff !important;
+  border-radius:0 !important;
+  font-weight:700;
+  letter-spacing:.5px;
+}
+
+/* Telegram кнопка */
+a[href*="t.me"]{
+  background:#cc0000 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  animation:none !important;
+}
+
+/* Скролбар */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:#fff}
+::-webkit-scrollbar-thumb{background:#000}
+
+/* Відгуки */
+.rev-item{
+  background:#f5f5f5 !important;
+  border-radius:0 !important;
+  border-left:3px solid #cc0000;
+}
+
+/* Бейдж кошика */
+.cart-badge{
+  background:#cc0000 !important;
+  border-radius:0 !important;
+}
+
+/* Zoom */
+#zoom{background:rgba(255,255,255,.97) !important}
+#zoom img{border:2px solid #000}
+
+/* SEO блок */
+[style*="bg3"]{background:#f5f5f5 !important}
+/* ══ /TERRA MARE ══ */
   
 </style>
 </head>
