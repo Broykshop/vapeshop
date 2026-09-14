@@ -9,185 +9,73 @@
   </url>
 
   <!-- Рідини Chaser -->
-  <url>
-    <loc>https://broykshop.store/?id=0</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=1</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=2</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=3</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=5</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=6</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=7</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=8</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=9</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=21</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=22</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=23</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=24</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=25</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <url><loc>https://broykshop.store/?id=0</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=1</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=2</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=3</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=5</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=6</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=7</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=8</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=9</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=21</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=22</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=23</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=24</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=25</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=30</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=31</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=32</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=33</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=34</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=35</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=36</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=37</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=38</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=39</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=40</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=41</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=42</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=43</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=44</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
 
-  <!-- Xros 5 Mini -->
-  <url>
-    <loc>https://broykshop.store/?id=10</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=11</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=4</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=16</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Xros 4 Mini -->
-  <url>
-    <loc>https://broykshop.store/?id=13</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=14</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Xros Mini -->
-  <url>
-    <loc>https://broykshop.store/?id=17</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=18</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Картриджі -->
-  <url>
-    <loc>https://broykshop.store/?id=20</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=19</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Xros 5 Nano -->
-  <url>
-    <loc>https://broykshop.store/?id=26</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=27</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <!-- Снюс -->
+  <url><loc>https://broykshop.store/?id=50</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=51</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=52</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
 
   <!-- Xros 3 Mini -->
-  <url>
-    <loc>https://broykshop.store/?id=28</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://broykshop.store/?id=29</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <url><loc>https://broykshop.store/?id=53</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=54</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=55</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Xros 4 Mini -->
+  <url><loc>https://broykshop.store/?id=56</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=57</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Xros 5 Mini -->
+  <url><loc>https://broykshop.store/?id=58</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=59</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=60</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=61</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Xros 5 -->
+  <url><loc>https://broykshop.store/?id=62</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=63</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Xros Pro -->
+  <url><loc>https://broykshop.store/?id=64</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=65</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Voopoo Vinci CE -->
+  <url><loc>https://broykshop.store/?id=66</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Картриджі -->
+  <url><loc>https://broykshop.store/?id=19</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=20</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Xros 5 Nano -->
+  <url><loc>https://broykshop.store/?id=26</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broykshop.store/?id=27</loc><lastmod>2025-05-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
 
 </urlset>
