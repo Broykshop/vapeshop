@@ -1133,6 +1133,89 @@ a[href*="t.me"][style*="position:fixed"]{
   color:#1a1008;
   padding:32px 24px 20px;
 }
+
+/* ══════════════ SPIRIT-STYLE LIGHT OVERRIDE ══════════════ */
+:root{
+  --bg:#ffffff;--bg2:#f7f7f7;--bg3:#f2f2f2;--bg4:#e8e8e8;
+  --text:#111111;--t2:rgba(17,17,17,.65);--t3:rgba(17,17,17,.4);
+  --green:#111111;--green2:#000000;
+  --red:#c0392b;--blue:#111111;--orange:#111111;
+  --r:4px;--r2:6px;
+}
+body{background:var(--bg);color:var(--text)}
+
+/* HEADER */
+.header{background:rgba(255,255,255,.92);border-bottom:1px solid #ebebeb}
+.hbtn{background:var(--bg3);color:var(--text)}
+.cart-hbtn{background:var(--text);color:#fff;font-weight:600}
+.h-logo{color:var(--text);text-transform:uppercase;letter-spacing:1px}
+.h-logo span{color:var(--text)}
+
+/* BOTTOM NAV */
+.bnav{background:rgba(255,255,255,.96);border-top:1px solid #ebebeb}
+.bni{color:var(--t3)}
+.bni.on{color:var(--text)}
+
+/* TYPOGRAPHY */
+.sec-title{text-transform:uppercase;letter-spacing:1.2px;font-weight:700;font-size:16px;color:var(--text)}
+.fs-title,.d-name{text-transform:uppercase;letter-spacing:.6px}
+.card-name,.rec-name,.sim-name{color:var(--text);font-weight:400}
+
+/* HERO BANNER */
+.banner-wrap{border-radius:0;margin:0 0 4px}
+.bslide{height:360px;align-items:flex-end;justify-content:flex-start;padding:28px;position:relative;background-size:cover;background-position:center}
+.bslide::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,0) 65%)}
+.bslide h3,.bslide p,.bslide button{position:relative;z-index:1}
+.bslide h3{color:#fff;font-size:24px;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.bslide p{color:rgba(255,255,255,.85)}
+.bslide button{background:#fff;color:#000;border-radius:0;padding:13px 30px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;font-size:12px}
+.b0{background:linear-gradient(135deg,#1a1a1a,#3a3a3a)}
+.b1{background:linear-gradient(135deg,#222,#444)}
+.b2{background:linear-gradient(135deg,#111,#333)}
+@media(min-width:900px){.bslide{height:460px;padding:48px}}
+
+/* PRODUCT CARDS — без рамок і яскравих бейджів */
+.card{background:transparent;box-shadow:none;border-radius:0}
+.card-img-wrap{background:var(--bg3);border-radius:var(--r2)}
+.card-body{padding:10px 2px 4px}
+.card-price{color:var(--text);font-weight:600}
+.badge{background:transparent;color:var(--t3);font-size:10px;font-weight:600;padding:0;border-radius:0;text-transform:uppercase;letter-spacing:.5px}
+.b-hit{color:var(--red)}
+.b-new{color:var(--text)}
+.card-wish{background:rgba(255,255,255,.85);color:#111}
+.card-buy{background:transparent;color:var(--text);border:1px solid var(--text);box-shadow:none;text-shadow:none;font-weight:500;letter-spacing:.3px;border-radius:0}
+.card-buy:hover{background:var(--text);color:#fff;box-shadow:none;transform:none}
+
+/* CATEGORIES — фото на всю плитку */
+.cat{background:var(--bg3);border-radius:0;flex-direction:column;align-items:stretch;padding:0;min-height:auto;overflow:hidden}
+.cat img{height:210px;width:100%;object-fit:contain;background:#fff;mix-blend-mode:normal;filter:none;margin:0;padding:18px}
+.cat-text{padding:14px 16px}
+.cat-text .t1{color:var(--text);text-transform:uppercase;letter-spacing:.6px;font-size:15px;font-weight:700}
+.cat-text .t2{color:var(--t3)}
+.cat-arr{display:none}
+.c0,.c1,.c2{background:var(--bg3)}
+
+/* SEO-блок, filter chips, інше світле */
+.fbtn{background:var(--bg3);color:var(--t3)}
+.fbtn.on{background:var(--text);color:#fff}
+.sinput{background:var(--bg3);color:var(--text)}
+
+/* FOOTER */
+.footer{background:var(--bg2);border-top:1px solid #ebebeb}
+.footer-logo{color:var(--text)}
+.footer-logo span{color:var(--text)}
+.footer-btn{background:var(--bg3);color:var(--text)}
+.footer-copy{color:var(--t3)}
+
+/* REC / SIM картки */
+.rec-card,.sim-card{background:transparent}
+.rec-card img,.sim-card img{background:var(--bg3);border-radius:var(--r2)}
+.rec-price,.sim-price{color:var(--text)}
+
+/* Прибрати пульсацію/шайн кнопки додавання в детальній картці — спокійніший стиль */
+.d-add-btn{background:var(--text);color:#fff;border-radius:0;animation:none;box-shadow:none}
+.d-add-btn::after{display:none}
+.d-price{color:var(--text)}
   
 </style>
 </head>
@@ -1209,6 +1292,7 @@ a[href*="t.me"][style*="position:fixed"]{
 
   <div class="banner-wrap">
     <div class="banner-track" id="btrack">
+      <div class="bslide b0" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7d3jXXMbp7E_uLZDUtsyCu4QmmQz3N9eFhGf_zFPcuA&s=10')"><h3>🔥 Xros 5 Mini</h3>...
       <div class="bslide b0"><h3>🔥 Xros 5 Mini</h3><p>Акумулятор 1500mAh • Новинка!</p><button onclick="openCat('xros5','Xros 5 Mini')">Переглянути</button></div>
       <div class="bslide b1"><h3>💧 На 3 замовлення знижка 25%</h3><p>не втрать шанс</p><button onclick="openCat('juice','Рідини')">Вибрати смак</button></div>
       <div class="bslide b2"><h3>📍 Самовивіз</h3><p>Вінниця • 14:30 – 17:30</p><button onclick="openCart()">Замовити</button></div>
