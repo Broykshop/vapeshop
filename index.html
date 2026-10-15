@@ -1716,6 +1716,8 @@ body{background:var(--bg);color:var(--text)}
   </button>
 </div>
 
+
+
 <script>
 const P=[
   {id:0,n:"Chaser Блакитна малина 30ml",p:270,cat:"juice",hit:true,img:"https://getvape.com.ua/image/cache/catalog/chaser-lab/nabr-chaser-fp-30ml-blakitna-malina-50mg-nf-00007933-1000x1000.jpg",desc:" Ідеальний класичний фруктовий смак.",specs:[["🍒","Смак","Лимонад"],["💧","Об'єм","30 мл"],["⚡","Нікотин","65 мг"],["🔋","Тип","Сольовий"]]},
@@ -2140,6 +2142,90 @@ function openCart(){
   document.getElementById("cart").style.display="block";
   renderCart();
   loadDelData();
+}
+
+/* ── MASCOT DRAG ── */
+(function(){
+  const wrap = document.getElementById('mascot-wrap');
+  if(!wrap) return;
+  let dragging=false, offX=0, offY=0;
+
+  function clampPos(x,y){
+    const w = wrap.offsetWidth, h = wrap.offsetHeight;
+    const maxX = window.innerWidth - w - 4;
+    const maxY = window.innerHeight - h - 4;
+    return { x: Math.min(Math.max(4,x), maxX), y: Math.min(Math.max(4,y), maxY) };
+  }
+  function setPos(x,y){
+    const p = clampPos(x,y);
+    wrap.style.left = p.x + 'px';
+    wrap.style.top = p.y + 'px';
+    wrap.style.right = 'auto';
+    wrap.style.bottom = 'auto';
+  }
+  wrap.addEventListener('pointerdown', e=>{
+    dragging = true;
+    wrap.setPointerCapture(e.pointerId);
+    const rect = wrap.getBoundingClientRect();
+    offX = e.clientX - rect.left;
+    offY = e.clientY - rect.top;
+    wrap.classList.add('dragging');
+  });
+  wrap.addEventListener('pointermove', e=>{
+    if(!dragging) return;
+    setPos(e.clientX - offX, e.clientY - offY);
+  });
+  function endDrag(){ dragging=false; wrap.classList.remove('dragging'); }
+  wrap.addEventListener('pointerup', endDrag);
+  wrap.addEventListener('pointercancel', endDrag);
+  window.addEventListener('resize', ()=>{
+    const rect = wrap.getBoundingClientRect();
+    if(rect.left && rect.top) setPos(rect.left, rect.top);
+  });
+})();
+
+/* ── MASCOT FLY ANIMATION + STACK ── */
+let mascotStackItems=[];
+function flyToMascot(e, imgSrc){
+  const mascot=document.getElementById('mascot-wrap');
+  if(!mascot||!e) return;
+  let startEl=e.target.closest('.card,.rec-card,.sim-card')||e.target;
+  let startImg=startEl.querySelector?startEl.querySelector('img'):null;
+  let startRect=(startImg||startEl).getBoundingClientRect();
+  let mRect=mascot.getBoundingClientRect();
+  let handX=mRect.left+mRect.width*0.52;
+  let handY=mRect.top+mRect.height*0.6;
+
+  let fly=document.createElement('img');
+  fly.src=imgSrc||(startImg?startImg.src:'');
+  fly.style.cssText=`position:fixed;left:${startRect.left}px;top:${startRect.top}px;width:${startRect.width||40}px;height:${startRect.height||40}px;object-fit:contain;z-index:99999;border-radius:10px;pointer-events:none;transition:all .7s cubic-bezier(.3,0,.2,1);opacity:.95;background:#111`;
+  document.body.appendChild(fly);
+  requestAnimationFrame(()=>{
+    fly.style.left=(handX-15)+'px';
+    fly.style.top=(handY-15)+'px';
+    fly.style.width='30px';
+    fly.style.height='30px';
+    fly.style.opacity='.3';
+  });
+  setTimeout(()=>{
+    fly.remove();
+    mascotStackItems.push(imgSrc||(startImg?startImg.src:''));
+    renderMascotStack();
+    mascot.classList.add('mascot-bounce');
+    setTimeout(()=>mascot.classList.remove('mascot-bounce'),400);
+  },700);
+}
+function renderMascotStack(){
+  const stack=document.getElementById('mascot-stack');
+  if(!stack) return;
+  const totalQty=cart.reduce((a,i)=>a+i.q,0);
+  const shown=mascotStackItems.slice(-5);
+  stack.innerHTML=shown.map((src,i)=>{
+    const rot=(i%2===0?-1:1)*(6+i*3);
+    const shift=i*7;
+    const leftPct=50+(i%2===0?-shift:shift);
+    return `<img src="${src}" style="position:absolute;bottom:${16+i*4}%;left:${leftPct}%;width:22%;max-width:30px;aspect-ratio:1;object-fit:contain;border-radius:6px;border:1.5px solid #fff;background:#111;transform:translateX(-50%) rotate(${rot}deg);box-shadow:0 2px 6px rgba(0,0,0,.4)">`;
+  }).join('')+(totalQty>0?`<div style="position:absolute;top:-4%;right:-4%;background:var(--green);color:#000;font-size:11px;font-weight:800;min-width:20px;height:20px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 4px">${totalQty}</div>`:'');
 }
 function closeCart(){document.getElementById("cart").style.display="none";}
 function renderCart(){
@@ -2612,89 +2698,7 @@ window.openD = function(id){
 };
 
 
-/* ── MASCOT DRAG ── */
-(function(){
-  const wrap = document.getElementById('mascot-wrap');
-  if(!wrap) return;
-  let dragging=false, offX=0, offY=0;
 
-  function clampPos(x,y){
-    const w = wrap.offsetWidth, h = wrap.offsetHeight;
-    const maxX = window.innerWidth - w - 4;
-    const maxY = window.innerHeight - h - 4;
-    return { x: Math.min(Math.max(4,x), maxX), y: Math.min(Math.max(4,y), maxY) };
-  }
-  function setPos(x,y){
-    const p = clampPos(x,y);
-    wrap.style.left = p.x + 'px';
-    wrap.style.top = p.y + 'px';
-    wrap.style.right = 'auto';
-    wrap.style.bottom = 'auto';
-  }
-  wrap.addEventListener('pointerdown', e=>{
-    dragging = true;
-    wrap.setPointerCapture(e.pointerId);
-    const rect = wrap.getBoundingClientRect();
-    offX = e.clientX - rect.left;
-    offY = e.clientY - rect.top;
-    wrap.classList.add('dragging');
-  });
-  wrap.addEventListener('pointermove', e=>{
-    if(!dragging) return;
-    setPos(e.clientX - offX, e.clientY - offY);
-  });
-  function endDrag(){ dragging=false; wrap.classList.remove('dragging'); }
-  wrap.addEventListener('pointerup', endDrag);
-  wrap.addEventListener('pointercancel', endDrag);
-  window.addEventListener('resize', ()=>{
-    const rect = wrap.getBoundingClientRect();
-    if(rect.left && rect.top) setPos(rect.left, rect.top);
-  });
-})();
-
-/* ── MASCOT FLY ANIMATION + STACK ── */
-let mascotStackItems=[];
-function flyToMascot(e, imgSrc){
-  const mascot=document.getElementById('mascot-wrap');
-  if(!mascot||!e) return;
-  let startEl=e.target.closest('.card,.rec-card,.sim-card')||e.target;
-  let startImg=startEl.querySelector?startEl.querySelector('img'):null;
-  let startRect=(startImg||startEl).getBoundingClientRect();
-  let mRect=mascot.getBoundingClientRect();
-  let handX=mRect.left+mRect.width*0.52;
-  let handY=mRect.top+mRect.height*0.6;
-
-  let fly=document.createElement('img');
-  fly.src=imgSrc||(startImg?startImg.src:'');
-  fly.style.cssText=`position:fixed;left:${startRect.left}px;top:${startRect.top}px;width:${startRect.width||40}px;height:${startRect.height||40}px;object-fit:contain;z-index:99999;border-radius:10px;pointer-events:none;transition:all .7s cubic-bezier(.3,0,.2,1);opacity:.95;background:#111`;
-  document.body.appendChild(fly);
-  requestAnimationFrame(()=>{
-    fly.style.left=(handX-15)+'px';
-    fly.style.top=(handY-15)+'px';
-    fly.style.width='30px';
-    fly.style.height='30px';
-    fly.style.opacity='.3';
-  });
-  setTimeout(()=>{
-    fly.remove();
-    mascotStackItems.push(imgSrc||(startImg?startImg.src:''));
-    renderMascotStack();
-    mascot.classList.add('mascot-bounce');
-    setTimeout(()=>mascot.classList.remove('mascot-bounce'),400);
-  },700);
-}
-function renderMascotStack(){
-  const stack=document.getElementById('mascot-stack');
-  if(!stack) return;
-  const totalQty=cart.reduce((a,i)=>a+i.q,0);
-  const shown=mascotStackItems.slice(-5);
-  stack.innerHTML=shown.map((src,i)=>{
-    const rot=(i%2===0?-1:1)*(6+i*3);
-    const shift=i*7;
-    const leftPct=50+(i%2===0?-shift:shift);
-    return `<img src="${src}" style="position:absolute;bottom:${16+i*4}%;left:${leftPct}%;width:22%;max-width:30px;aspect-ratio:1;object-fit:contain;border-radius:6px;border:1.5px solid #fff;background:#111;transform:translateX(-50%) rotate(${rot}deg);box-shadow:0 2px 6px rgba(0,0,0,.4)">`;
-  }).join('')+(totalQty>0?`<div style="position:absolute;top:-4%;right:-4%;background:var(--green);color:#000;font-size:11px;font-weight:800;min-width:20px;height:20px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 4px">${totalQty}</div>`:'');
-}
   
   
 </script>
