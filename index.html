@@ -1860,14 +1860,14 @@ function setSideNav(name){
 function goHome(){hideAll();document.getElementById("home").style.display="block";setNav("home");setSideNav("home");scrollTo(0,0);closeMenu();}
 function goPods(){hideAll();let e=document.getElementById("pods");e.style.display="block";setSideNav("pods");scrollTo(0,0);closeMenu();}
 function openCat(cat,title){
-  curCat=cat;curF="all";fromPods=["xros5","xros4","xrosmini","xros5nano","xros3mini"].includes(cat);
+  curCat=cat;curF="all";fromPods=["xros5","xros4","xrosmini","xros5nano","xros3mini","xrospro","xros5full","vincise"].includes(cat);
   hideAll();let el=document.getElementById("products");el.style.display="block";
   document.getElementById("prod-title").innerText=title;
   document.getElementById("sinput").value="";
   document.querySelectorAll(".fbtn").forEach(b=>b.classList.remove("on"));
   document.getElementById("f-all").classList.add("on");
   renderProds(cat);scrollTo(0,0);closeMenu();
-  let smap={"juice":"juice","cartridge":"cart","xros5":"pods","xros4":"pods","xrosmini":"pods","xros5nano":"pods","xros3mini":"pods"};
+  let smap={"juice":"juice","cartridge":"cart","snus":"pods","xros5":"pods","xros4":"pods","xrosmini":"pods","xros5nano":"pods","xros3mini":"pods","xrospro":"pods","xros5full":"pods","vincise":"pods"};
   setSideNav(smap[cat]||"");
 }
 function backProd(){if(fromPods){hideAll();document.getElementById("pods").style.display="block";setSideNav("pods");}else goHome();}
