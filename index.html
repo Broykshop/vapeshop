@@ -10,13 +10,13 @@
 <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
 <meta charset="UTF-8">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#000">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="description" content="Broyk Shop — вейп-магазин у Вінниці. Вейпшоп у Вінниці з доставкою по всій Україні через Нову Пошту та можливістю особистих зустрічей у місті. У нашому магазині ви знайдете широкий асортимент товарів для паріння: POD-системи, одноразові електронні сигарети, картриджі, випаровувачі, аксесуари та великий вибір рідин (жидкостей) для вейпів з різними смаками та рівнями міцності. Ми орієнтовані на швидкий сервіс, доступні ціни та постійну наявність популярних позицій. Наш вейпшоп пропонує продукцію для різних рівнів користувачів — від базових POD-систем для щоденного використання до більш потужних пристроїв для досвідчених користувачів. У нас ви можете знайти як класичні смаки рідин, так і нові популярні мікси, фруктові, м'ятні, десертні та інші варіації. Ми регулярно оновлюємо асортимент, щоб ви могли купити актуальні новинки ринку вейпінгу. Доставка здійснюється по всій Україні через Нову Пошту максимально швидко.">
 <title>Broyk Shop — Вейп магазин | Жижи та Поди</title>
 <meta property="og:title" content="Broyk Shop">
@@ -1013,8 +1013,6 @@ html,body{background:#f2ede8 !important;color:#1a1008 !important}
 /* ── МЕНЮ ── */
 #menu{background:#fff !important;border:1px solid #d8d0c8 !important;border-radius:0 !important;box-shadow:0 8px 24px rgba(0,0,0,.1) !important}
 .mi{color:#1a1008 !important;border-radius:0 !important;font-weight:600}
-.mi:active{background:#f5f0eb !important}
-<div class="mi" onclick="openCat('snus','Снюс')">🟡 Снюс</div>
 
 /* ── TOAST ── */
 .toast{background:#1a1008 !important;color:#fff !important;border-radius:0 !important;font-weight:700}
@@ -1192,6 +1190,7 @@ a[href*="t.me"][style*="position:fixed"]{
   <div class="mi" onclick="goPods()">📦 Поди</div>
   <div class="mi" onclick="openCat('juice','Рідини (Жижи)')">💧 Жижи</div>
   <div class="mi" onclick="openCat('cartridge','Картриджі')">🔧 Картриджі</div>
+  <div class="mi" onclick="openCat('snus','Снюс')">🟡 Снюс</div>
   <div class="mi" onclick="openFaq()">❓ FAQ</div>
   <div class="mi" onclick="window.open('https://t.me/perexodnikvape')">✈️ Telegram</div>
 </div>
@@ -1219,10 +1218,11 @@ a[href*="t.me"][style*="position:fixed"]{
 
   <div class="banner-wrap">
     <div class="banner-track" id="btrack">
-      <div class="bslide b0" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7d3jXXMbp7E_uLZDUtsyCu4QmmQz3N9eFhGf_zFPcuA&s=10')"><h3>🔥 Xros 5 Mini</h3>...
-      <div class="bslide b0"><h3>🔥 Xros 5 Mini</h3><p>Акумулятор 1500mAh • Новинка!</p><button onclick="openCat('xros5','Xros 5 Mini')">Переглянути</button></div>
-      <div class="bslide b1"><h3>💧 На 3 замовлення знижка 25%</h3><p>не втрать шанс</p><button onclick="openCat('juice','Рідини')">Вибрати смак</button></div>
-      <div class="bslide b2"><h3>📍 Самовивіз</h3><p>Вінниця • 14:30 – 17:30</p><button onclick="openCart()">Замовити</button></div>
+     <div class="bslide b0">
+  <h3>🔥 Xros 5 Mini</h3>
+  <p>Акумулятор 1500mAh • Новинка!</p>
+  <button onclick="openCat('xros5','Xros 5 Mini')">Переглянути</button>
+</div>
     </div>
     <div class="bdots" id="bdots"></div>
   </div>
@@ -1710,65 +1710,7 @@ const P=[
 
  
   {id:89,n:"Картридж Vmate 3мл 0.7 Ом",p:140,cat:"cartridge",hit:false,isNew:false,img:"https://hookahcat.com.ua/image/cache/catalog/productphoto/5983/kartridzh-voopoo-vmate-v3-0-7-om-2-600x600.jpg",desc:"Змінний картридж 0.7 Ом для Voopoo Vmate Mini.",specs:[["⚙️","Опір","0.7 Ом"],["💧","Об'єм","3 мл"],["🔧","Тип","Сітчастий"],["📦","Сумісність","Vmate Mini"]]},
-  // ── СНЮС ──
-{id:50,n:"Cuba 150 - Pinacolada",p:150,cat:"snus",hit:true,isNew:true,img:"https://snus.biz.ua/image/cache/catalog/cuba/cuba-150-pinacolada-800x800.jpg",desc:"Cuba 150 мг. Смак Pinacolada — тропічний та солодкий.",specs:[["💊","Тип","Подушечки"],["⚡","Нікотин","150 мг"],["🍍","Смак","Pinacolada"],["📦","Кількість","20 шт"]]},
-{id:51,n:"Cuba 43 - Double Fresh Mint",p:80,cat:"snus",hit:false,isNew:true,img:"https://snus.biz.ua/image/cache/catalog/cuba/cuba-43-mint-800x800.jpg",desc:"Cuba 43 мг. Подвійна свіжа м'ята.",specs:[["💊","Тип","Подушечки"],["⚡","Нікотин","43 мг"],["🌿","Смак","Double Fresh Mint"],["📦","Кількість","20 шт"]]},
-{id:52,n:"Street 150 - Green Apple",p:120,cat:"snus",hit:false,isNew:true,img:"https://snus.biz.ua/image/cache/catalog/street/street-150-green-apple-800x800.jpg",desc:"Street 150 мг. Зелене яблуко.",specs:[["💊","Тип","Подушечки"],["⚡","Нікотин","150 мг"],["🍏","Смак","Green Apple"],["📦","Кількість","20 шт"]]},
 
-// ── XROS 3 MINI ──
-{id:53,n:"Xros 3 Mini - Icy Silver",p:670,cat:"xros3mini",hit:false,isNew:true,img:"https://vapedr.com.ua/wp-content/uploads/2025/03/vaporesso-xros-3-mini-icy-silver.jpg",desc:"Xros 3 Mini у сріблясто-льодяному кольорі.",specs:[["🔋","Акумулятор","1000 mAh"],["💧","Картридж","2 мл"],["⚡","Зарядка","Type-C"],["🏷️","Колір","Icy Silver"]]},
-{id:54,n:"Xros 3 Mini - Space Gray",p:670,cat:"xros3mini",hit:false,isNew:true,img:"https://vapedr.com.ua/wp-content/uploads/2025/03/vaporesso-xros-3-mini-space-gray.jpg",desc:"Xros 3 Mini у космічно-сірому кольорі.",specs:[["🔋","Акумулятор","1000 mAh"],["💧","Картридж","2 мл"],["⚡","Зарядка","Type-C"],["🏷️","Колір","Space Gray"]]},
-{id:55,n:"Xros 3 Mini - Rose Pink",p:670,cat:"xros3mini",hit:false,isNew:true,img:"https://terra-vapes.com.ua/image/cache/catalog/Vaporesso/vaporesso-xros-3-mini-pod-system-kit-1000mah-2ml/vaporesso-xros-3-mini-pod-system-kit-rose-pink-1000x1000.jpg",desc:"Xros 3 Mini у ніжному рожевому.",specs:[["🔋","Акумулятор","1000 mAh"],["💧","Картридж","2 мл"],["⚡","Зарядка","Type-C"],["🏷️","Колір","Rose Pink"]]},
-
-// ── XROS 4 MINI ──
-{id:56,n:"Xros 4 Mini - Black",p:750,cat:"xros4",hit:true,isNew:false,img:"https://guruvape.com.ua/content/images/34/536x536l50nn0/68307571639824.jpg",desc:"Xros 4 Mini у класичному чорному.",specs:[["🔋","Акумулятор","900 mAh"],["💧","Картридж","2 мл"],["⚡","Зарядка","Type-C"],["🏷️","Колір","Black"]]},
-{id:57,n:"Xros 4 Mini - Camo Red",p:750,cat:"xros4",hit:false,isNew:true,img:"https://guruvape.com.ua/content/images/34/536x536l50nn0/68307571639824.jpg",desc:"Xros 4 Mini у камуфляжно-червоному.",specs:[["🔋","Акумулятор","900 mAh"],["💧","Картридж","2 мл"],["⚡","Зарядка","Type-C"],["🏷️","Колір","Camo Red"]]},
-
-// ── XROS 5 MINI ──
-{id:58,n:"Xros 5 Mini - Retro Pink",p:810,cat:"xros5",hit:true,isNew:true,img:"https://vapedr.com.ua/wp-content/uploads/2025/05/vaporesso-xros-5-mini-pod-kit-retro-pink-700x525.jpg",desc:"Xros 5 Mini у ретро рожевому.",specs:[["🔋","Акумулятор","1500 mAh"],["💧","Картридж","2 мл"],["⚡","Зарядка","Type-C"],["🏷️","Колір","Retro Pink"]]},
-{id:59,n:"Xros 5 Mini - Mist Black",p:810,cat:"xros5",hit:true,isNew:true,img:"https://fortunacigars.com.ua/content/images/6/304x536l50nn0/pod-systema-vaporesso-xros-5-mini-carbon-black-97954139389989.jpg",desc:"Xros 5 Mini у туманному чорному.",specs:[["🔋","Акумулятор","1500 mAh"],["💧","Картридж","2 мл"],["⚡","Зарядка","Type-C"],["🏷️","Колір","Mist Black"]]},
-{id:60,n:"Xros 5 Mini - Sky Blue",p:810,cat:"xros5",hit:false,isNew:true,img:"https://content2.rozetka.com.ua/goods/images/big/580721562.jpg",desc:"Xros 5 Mini у небесно-блакитному.",specs:[["🔋","Акумулятор","1500 mAh"],["💧","Картридж","2 мл"],["⚡","Зарядка","Type-C"],["🏷️","Колір","Sky Blue"]]},
-{id:61,n:"Xros 5 Mini - Flowing Green",p:810,cat:"xros5",hit:false,isNew:true,img:"https://content2.rozetka.com.ua/goods/images/big/580721562.jpg",desc:"Xros 5 Mini у плавному зеленому.",specs:[["🔋","Акумулятор","1500 mAh"],["💧","Картридж","2 мл"],["⚡","Зарядка","Type-C"],["🏷️","Колір","Flowing Green"]]},
-
-// ── XROS 5 ──
-{id:62,n:"Xros 5 - Coral Red",p:950,cat:"xros5full",hit:true,isNew:true,img:"https://content2.rozetka.com.ua/goods/images/big/580721562.jpg",desc:"Xros 5 у кораловому червоному. Флагман лінійки.",specs:[["🔋","Акумулятор","1600 mAh"],["💧","Картридж","2 мл"],["⚡","Зарядка","Type-C"],["🏷️","Колір","Coral Red"]]},
-{id:63,n:"Xros 5 - Blue Slick",p:950,cat:"xros5full",hit:false,isNew:true,img:"https://content2.rozetka.com.ua/goods/images/big/580721562.jpg",desc:"Xros 5 у стильному синьому.",specs:[["🔋","Акумулятор","1600 mAh"],["💧","Картридж","2 мл"],["⚡","Зарядка","Type-C"],["🏷️","Колір","Blue Slick"]]},
-
-// ── XROS PRO ──
-{id:64,n:"Xros Pro - Pink",p:1050,cat:"xrospro",hit:false,isNew:true,img:"https://content2.rozetka.com.ua/goods/images/big/580721562.jpg",desc:"Xros Pro у рожевому. Преміум клас.",specs:[["🔋","Акумулятор","1600 mAh"],["💧","Картридж","3 мл"],["⚡","Зарядка","Type-C"],["🏷️","Колір","Pink"]]},
-{id:65,n:"Xros Pro - Black",p:1050,cat:"xrospro",hit:false,isNew:true,img:"https://content2.rozetka.com.ua/goods/images/big/580721562.jpg",desc:"Xros Pro у чорному. Преміум клас.",specs:[["🔋","Акумулятор","1600 mAh"],["💧","Картридж","3 мл"],["⚡","Зарядка","Type-C"],["🏷️","Колір","Black"]]},
-
-// ── VOOPOO VINCI SE ──
-{id:66,n:"Voopoo Vinci SE - Flame Red",p:890,cat:"vincise",hit:true,isNew:true,img:"https://content2.rozetka.com.ua/goods/images/big/580721562.jpg",desc:"Voopoo Vinci SE у вогняному червоному.",specs:[["🔋","Акумулятор","1500 mAh"],["💧","Картридж","2 мл"],["⚡","Зарядка","Type-C"],["🏷️","Колір","Flame Red"]]},
-
-// ── НОВІ ЖИЖІ ──
-{id:30,n:"Chaser Ківі 30ml",p:270,cat:"juice",hit:false,img:"https://dartvaper.ua/files/products/kiwi.600x600.jpg",desc:"Соковитий ківі з легкою кислинкою.",specs:[["🥝","Смак","Ківі"],["💧","Об'єм","30 мл"],["⚡","Нікотин","65 мг"],["🔋","Тип","Сольовий"]]},
-{id:31,n:"Chaser Грейп Техно 30ml",p:270,cat:"juice",hit:false,img:"https://dartvaper.ua/files/products/grape-techno.600x600.jpg",desc:"Виноград з технологічним холодком.",specs:[["🍇","Смак","Виноград"],["💧","Об'єм","30 мл"],["⚡","Нікотин","65 мг"],["❄️","Охолодження","Так"]]},
-{id:32,n:"Chaser Блю Айс Біт 30ml",p:270,cat:"juice",hit:false,img:"https://dartvaper.ua/files/products/blue-ice-beat.600x600.jpg",desc:"Блакитний лід з фруктовим битом.",specs:[["🫐","Смак","Блю Айс"],["💧","Об'єм","30 мл"],["⚡","Нікотин","65 мг"],["❄️","Охолодження","Максимальне"]]},
-{id:33,n:"Chaser Бабл Бері Тюн 30ml",p:270,cat:"juice",hit:false,img:"https://dartvaper.ua/files/products/bubble-berry-tune.600x600.jpg",desc:"Ягідна жуйка з мелодійним смаком.",specs:[["🍬","Смак","Баблгам + ягоди"],["💧","Об'єм","30 мл"],["⚡","Нікотин","65 мг"],["🔋","Тип","Сольовий"]]},
-{id:34,n:"Chaser Айс Піч Флоу 30ml",p:270,cat:"juice",hit:false,img:"https://dartvaper.ua/files/products/ice-peach-flow.600x600.jpg",desc:"Холодний персик з плавним потоком смаку.",specs:[["🍑","Смак","Персик + лід"],["💧","Об'єм","30 мл"],["⚡","Нікотин","65 мг"],["❄️","Охолодження","Так"]]},
-{id:35,n:"Chaser Грейп Мінт 30ml",p:270,cat:"juice",hit:false,img:"https://dartvaper.ua/files/products/grape-mint.600x600.jpg",desc:"Виноград з освіжаючою м'ятою.",specs:[["🍇","Смак","Виноград + м'ята"],["💧","Об'єм","30 мл"],["⚡","Нікотин","65 мг"],["❄️","Охолодження","Так"]]},
-{id:36,n:"Chaser Блю Бері Мінт 30ml",p:270,cat:"juice",hit:false,img:"https://dartvaper.ua/files/products/blueberry-mint.600x600.jpg",desc:"Чорниця з прохолодною м'ятою.",specs:[["🫐","Смак","Чорниця + м'ята"],["💧","Об'єм","30 мл"],["⚡","Нікотин","65 мг"],["❄️","Охолодження","Так"]]},
-{id:37,n:"Chaser Енергетик 30ml",p:270,cat:"juice",hit:true,img:"https://dartvaper.ua/files/products/energy-drink.600x600.jpg",desc:"Класичний енергетик — бадьоро і смачно.",specs:[["⚡","Смак","Енергетик"],["💧","Об'єм","30 мл"],["⚡","Нікотин","65 мг"],["🔋","Тип","Сольовий"]]},
-{id:38,n:"Chaser Кисле Яблуко 30ml",p:270,cat:"juice",hit:false,img:"https://dartvaper.ua/files/products/sour-apple.600x600.jpg",desc:"Кисленьке яблуко — яскравий та освіжаючий смак.",specs:[["🍏","Смак","Кисле яблуко"],["💧","Об'єм","30 мл"],["⚡","Нікотин","65 мг"],["🔋","Тип","Сольовий"]]},
-{id:39,n:"Chaser Орбіт 30ml",p:270,cat:"juice",hit:false,img:"https://dartvaper.ua/files/products/orbit.600x600.jpg",desc:"Жуйка Орбіт — свіжо та знайомо.",specs:[["🍬","Смак","Орбіт"],["💧","Об'єм","30 мл"],["⚡","Нікотин","65 мг"],["🔋","Тип","Сольовий"]]},
-{id:40,n:"Chaser Кола 30ml",p:270,cat:"juice",hit:false,img:"https://dartvaper.ua/files/products/cola.600x600.jpg",desc:"Класична кола — солодко та газовано.",specs:[["🥤","Смак","Кола"],["💧","Об'єм","30 мл"],["⚡","Нікотин","65 мг"],["🔋","Тип","Сольовий"]]},
-{id:41,n:"Chaser Солодка М'ята 30ml",p:270,cat:"juice",hit:false,img:"https://dartvaper.ua/files/products/sweet-mint.600x600.jpg",desc:"Солодка м'ята — м'яко та приємно.",specs:[["🌿","Смак","Солодка м'ята"],["💧","Об'єм","30 мл"],["⚡","Нікотин","65 мг"],["❄️","Охолодження","М'яке"]]},
-{id:42,n:"Chaser Крута М'ята 30ml",p:270,cat:"juice",hit:false,img:"https://dartvaper.ua/files/products/cool-mint.600x600.jpg",desc:"Крута м'ята — максимальна свіжість.",specs:[["🌿","Смак","Крута м'ята"],["💧","Об'єм","30 мл"],["⚡","Нікотин","65 мг"],["❄️","Охолодження","Максимальне"]]},
-{id:43,n:"Chaser Бабл Мінт 30ml",p:270,cat:"juice",hit:false,img:"https://dartvaper.ua/files/products/bubble-mint.600x600.jpg",desc:"Жуйка з м'ятою — солодко та свіжо.",specs:[["🍬","Смак","Баблгам + м'ята"],["💧","Об'єм","30 мл"],["⚡","Нікотин","65 мг"],["❄️","Охолодження","Так"]]},
-{id:44,n:"Chaser Блек Бері Соур Расбері 30ml",p:270,cat:"juice",hit:true,img:"https://dartvaper.ua/files/products/blackberry-sour-raspberry.600x600.jpg",desc:"Ожина з кислою малиною — яскраво та соковито.",specs:[["🫐","Смак","Ожина + кисла малина"],["💧","Об'єм","30 мл"],["⚡","Нікотин","65 мг"],["🔋","Тип","Сольовий"]]},
-
-// ── КАРТРИДЖІ ──
-{id:80,n:"Картридж Xros 3мл 0.6 Ом #1",p:140,cat:"cartridge",hit:false,img:"https://content.rozetka.com.ua/goods/images/big/576146677.jpg",desc:"Змінний картридж 0.6 Ом для Xros серії. Об'єм 3 мл.",specs:[["⚙️","Опір","0.6 Ом"],["💧","Об'єм","3 мл"],["🔧","Тип","Сітчастий"],["📦","Сумісність","Xros Mini/3/4/5"]]},
-{id:81,n:"Картридж Xros 3мл 0.6 Ом #2",p:140,cat:"cartridge",hit:false,img:"https://content.rozetka.com.ua/goods/images/big/576146677.jpg",desc:"Змінний картридж 0.6 Ом для Xros серії. Об'єм 3 мл.",specs:[["⚙️","Опір","0.6 Ом"],["💧","Об'єм","3 мл"],["🔧","Тип","Сітчастий"],["📦","Сумісність","Xros Mini/3/4/5"]]},
-{id:82,n:"Картридж Xros 3мл 0.8 Ом #1",p:140,cat:"cartridge",hit:false,img:"https://content2.rozetka.com.ua/goods/images/big/576146504.jpg",desc:"Змінний картридж 0.8 Ом для Xros серії. Об'єм 3 мл.",specs:[["⚙️","Опір","0.8 Ом"],["💧","Об'єм","3 мл"],["🔧","Тип","Сітчастий"],["📦","Сумісність","Xros Mini/3/4/5"]]},
-{id:83,n:"Картридж Xros 3мл 0.8 Ом #2",p:140,cat:"cartridge",hit:false,img:"https://content2.rozetka.com.ua/goods/images/big/576146504.jpg",desc:"Змінний картридж 0.8 Ом для Xros серії. Об'єм 3 мл.",specs:[["⚙️","Опір","0.8 Ом"],["💧","Об'єм","3 мл"],["🔧","Тип","Сітчастий"],["📦","Сумісність","Xros Mini/3/4/5"]]},
-{id:84,n:"Картридж Xros 2мл 0.8 Ом #1",p:140,cat:"cartridge",hit:false,img:"https://content2.rozetka.com.ua/goods/images/big/576146504.jpg",desc:"Змінний картридж 0.8 Ом для Xros серії. Об'єм 2 мл.",specs:[["⚙️","Опір","0.8 Ом"],["💧","Об'єм","2 мл"],["🔧","Тип","Сітчастий"],["📦","Сумісність","Xros Mini/3/4/5"]]},
-{id:85,n:"Картридж Xros 2мл 0.8 Ом #2",p:140,cat:"cartridge",hit:false,img:"https://content2.rozetka.com.ua/goods/images/big/576146504.jpg",desc:"Змінний картридж 0.8 Ом для Xros серії. Об'єм 2 мл.",specs:[["⚙️","Опір","0.8 Ом"],["💧","Об'єм","2 мл"],["🔧","Тип","Сітчастий"],["📦","Сумісність","Xros Mini/3/4/5"]]},
-{id:86,n:"Картридж Xros 3мл 0.4 Ом #1",p:140,cat:"cartridge",hit:false,img:"https://content.rozetka.com.ua/goods/images/big/576146677.jpg",desc:"Змінний картридж 0.4 Ом для Xros серії. Об'єм 3 мл.",specs:[["⚙️","Опір","0.4 Ом"],["💧","Об'єм","3 мл"],["🔧","Тип","Сітчастий"],["📦","Сумісність","Xros Mini/3/4/5"]]},
-{id:87,n:"Картридж Xros 3мл 0.4 Ом #2",p:140,cat:"cartridge",hit:false,img:"https://content.rozetka.com.ua/goods/images/big/576146677.jpg",desc:"Змінний картридж 0.4 Ом для Xros серії. Об'єм 3 мл.",specs:[["⚙️","Опір","0.4 Ом"],["💧","Об'єм","3 мл"],["🔧","Тип","Сітчастий"],["📦","Сумісність","Xros Mini/3/4/5"]]},
-{id:88,n:"Картридж Vinci Series 0.8 Ом",p:140,cat:"cartridge",hit:false,img:"https://content.rozetka.com.ua/goods/images/big/576146677.jpg",desc:"Змінний картридж 0.8 Ом для Voopoo Vinci серії.",specs:[["⚙️","Опір","0.8 Ом"],["💧","Об'єм","2 мл"],["🔧","Тип","Сітчастий"],["📦","Сумісність","Vinci CE / SE"]]},
-{id:89,n:"Картридж Vmate 3мл 0.7 Ом",p:140,cat:"cartridge",hit:false,img:"https://content.rozetka.com.ua/goods/images/big/576146677.jpg",desc:"Змінний картридж 0.7 Ом для Voopoo Vmate Mini.",specs:[["⚙️","Опір","0.7 Ом"],["💧","Об'єм","3 мл"],["🔧","Тип","Сітчастий"],["📦","Сумісність","Vmate Mini"]]},
 
 ];
   
