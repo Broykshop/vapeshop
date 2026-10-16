@@ -2188,8 +2188,9 @@ function remC(i){cart.splice(i,1);updCount();renderCart();sv();}
 function applyPromo(){
   let code=document.getElementById("promo-inp").value.trim().toUpperCase();
   let ok=document.getElementById("promo-ok");
-  if(PROMOS[code]){
-    discount=PROMOS[code];ok.style.display="block";ok.style.background="rgba(48,209,88,.12)";ok.style.color="var(--green)";ok.style.borderRadius="var(--r)";ok.style.padding="8px 12px";
+  let discVal=checkPromo(code);
+if(discVal > 0){
+    discount=discVal;ok.style.display="block";ok.style.background="rgba(48,209,88,.12)";ok.style.color="var(--green)";ok.style.borderRadius="var(--r)";ok.style.padding="8px 12px";
     ok.innerText="✔ Промокод застосовано: -"+discount+"%";toast("🎉 Знижка "+discount+"%!");renderCart();
   } else {
     discount=0;ok.style.display="block";ok.style.background="rgba(255,69,58,.12)";ok.style.color="var(--red)";ok.style.borderRadius="var(--r)";ok.style.padding="8px 12px";
