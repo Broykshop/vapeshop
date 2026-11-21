@@ -2020,7 +2020,7 @@ document.querySelector('meta[name="description"]').setAttribute('content',
 document.querySelector('meta[property="og:title"]').setAttribute('content', p.n + ' | Broyk Shop');
 document.querySelector('meta[property="og:description"]').setAttribute('content', 
   p.desc + ' Ціна: ' + p.p + ' грн.');
-history.pushState({id:p.id}, '', '/?id=' + p.id);
+
   addRecent(id);
   gImgs = (p.imgs && p.imgs.length) ? p.imgs : [p.img, ...P.filter(x=>x.cat===p.cat&&x.id!==p.id&&x.img!==p.img).slice(0,3).map(x=>x.img)];
   gIdx=0;
@@ -2052,7 +2052,7 @@ function closeDetail(){
   document.title = 'Broyk Shop — Вейп магазин | Жижи та Поди';
 document.querySelector('meta[name="description"]').setAttribute('content', 
   'Broyk Shop — вейп магазин у Вінниці. POD системи, рідини Chaser, картриджі. Доставка по Україні.');
-history.pushState({}, '', '/');
+
 }
 function goG(i){gIdx=Math.max(0,Math.min(i,gImgs.length-1));document.getElementById("gal-track").style.transform=`translateX(-${gIdx*100}%)`;document.querySelectorAll(".gdot").forEach((d,j)=>d.classList.toggle("on",j===gIdx));}
 function initGSwipe(){
