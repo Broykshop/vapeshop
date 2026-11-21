@@ -2402,27 +2402,10 @@ localStorage.setItem('lastOrder', Date.now());
     showSuccess(snapItems,snapTotal,delivHtml,contactHtml);
   }
   function onFail(){
-    let oh={date:new Date().toLocaleString("uk-UA"),items:[...cart],sum:fin};
-    orderHist.unshift(oh);if(orderHist.length>20)orderHist=orderHist.slice(0,20);
-    let delivHtml='';
-    if(delMode==='pick'){
-      let pt=document.querySelector('input[name="pp"]:checked');
-      delivHtml=`📍 <b>Самовивіз</b><br>${pt?pt.value:''}<br>🕐 ${selTime}`;
-    } else {
-      let city=document.getElementById('city').value.trim();
-      let branch=document.getElementById('branch').value.trim();
-      delivHtml=`🚚 <b>Нова пошта</b><br>${city?city:'—'}<br>${branch?branch:'—'}`;
-    }
-    let contactHtml=`👤 ${n}<br>📞 ${ph}`;
-    let snapItems=[...cart];
-    let snapTotal=fin;
-    cart=[];discount=0;mascotStackItems=[];updCount();renderMascotStack();sv();
-    try{document.getElementById("promo-ok").style.display="none";}catch(e){}
-    try{document.getElementById("promo-inp").value="";}catch(e){}
-    launchConf();
-    sending=false;
-    showSuccess(snapItems,snapTotal,delivHtml,contactHtml);
-  }
+  sending=false;
+  try{localStorage.removeItem('lastOrder');}catch(e){}
+  toast("❌ Не вдалося відправити. Спробуйте ще раз або напишіть у Telegram");
+}
   function resetBtn(){
     if(orderBtn){orderBtn.innerText="Оформити замовлення";orderBtn.disabled=false;}
   }
@@ -2440,7 +2423,7 @@ localStorage.setItem('lastOrder', Date.now());
     if(didRespond)return;
     didRespond=true;clearTimeout(tgTimeout);resetBtn();
     if(d.ok){onSuccess();}
-    else{console.error("TG Bot error:",d);alert("Помилка: "+JSON.stringify(d));onFail();}
+   else{console.error("TG Bot error:",d);onFail();}
   }).catch(err=>{
     if(didRespond)return;
     didRespond=true;clearTimeout(tgTimeout);resetBtn();
