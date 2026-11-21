@@ -2120,45 +2120,34 @@ if(txt.length > 0 && txt.length < 3){toast("❌ Мінімум 3 символи"
   setStar(0);
   renderRevs(id);
 }
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let revUnsub=null;
 function renderRevs(id){
   let el=document.getElementById("d-revs");
   let avgEl=document.getElementById("d-avg");
-  el.innerHTML='<div style="color:var(--t3);font-size:13px">Завантаження відгуків...</div>';
-
-  if(window.fbReady){
-    let r=window.fbRef(window.fbDb, 'reviews/'+id);
-    window.fbOnValue(r, snap=>{
-      let data=snap.val();
-      el.innerHTML="";
-      if(!data){
-        avgEl.innerText="Поки немає оцінок";
-        return;
-      }
-      let revs=Object.values(data);
-      let avg=revs.reduce((a,b)=>a+b.r,0)/revs.length;
-      avgEl.innerText="★".repeat(Math.round(avg))+" "+avg.toFixed(1);
-      revs.slice().reverse().forEach(r=>{
-        el.innerHTML+=`<div class="rev-item">
-          <div class="rev-author">${r.a} ${"★".repeat(r.r)}${"☆".repeat(5-r.r)}</div>
-          ${r.t?`<div class="rev-text">${r.t}</div>`:""}
-          <div class="rev-date">${r.d}</div>
-        </div>`;
-      });
-    });
-  } else {
-    let avg=0;
-    if(ratings[id]&&ratings[id].length)
-      avg=ratings[id].reduce((a,b)=>a+b,0)/ratings[id].length;
-    avgEl.innerText=ratings[id]&&ratings[id].length?
-      ("★".repeat(Math.round(avg))+" "+avg.toFixed(1)):"Поки немає оцінок";
+  const draw=revs=>{
     el.innerHTML="";
-    (reviews[id]||[]).slice().reverse().forEach(r=>{
+    if(!revs.length){avgEl.innerText="Поки немає оцінок";return;}
+    let avg=revs.reduce((a,b)=>a+b.r,0)/revs.length;
+    avgEl.innerText="★".repeat(Math.round(avg))+" "+avg.toFixed(1);
+    revs.slice().reverse().forEach(r=>{
       el.innerHTML+=`<div class="rev-item">
-        <div class="rev-author">${r.a} ${"★".repeat(r.r)}${"☆".repeat(5-r.r)}</div>
-        ${r.t?`<div class="rev-text">${r.t}</div>`:""}
-        <div class="rev-date">${r.d}</div>
+        <div class="rev-author">${esc(r.a)} ${"★".repeat(r.r)}${"☆".repeat(5-r.r)}</div>
+        ${r.t?`<div class="rev-text">${esc(r.t)}</div>`:""}
+        <div class="rev-date">${esc(r.d)}</div>
       </div>`;
     });
+  };
+  if(revUnsub){revUnsub();revUnsub=null;}
+  if(window.fbReady){
+    el.innerHTML='<div style="color:var(--t3);font-size:13px">Завантаження відгуків...</div>';
+    let r=window.fbRef(window.fbDb,'reviews/'+id);
+    revUnsub=window.fbOnValue(r,snap=>{
+      let data=snap.val();
+      draw(data?Object.values(data).filter(x=>x&&typeof x.r==="number"&&x.r>=1&&x.r<=5):[]);
+    });
+  } else {
+    draw((reviews[id]||[]));
   }
 }
 
@@ -2302,9 +2291,9 @@ function remC(i){cart.splice(i,1);updCount();renderCart();sv();}
 function applyPromo(){
   let code=document.getElementById("promo-inp").value.trim().toUpperCase();
   let ok=document.getElementById("promo-ok");
-  let discVal=checkPromo(code);
-if(discVal > 0){
-    discount=discVal;ok.style.display="block";ok.style.background="rgba(48,209,88,.12)";ok.style.color="var(--green)";ok.style.borderRadius="var(--r)";ok.style.padding="8px 12px";
+  let pd=checkPromo(code);
+  if(pd){
+    discount=pd;ok.style.display="block";ok.style.background="rgba(48,209,88,.12)";ok.style.color="var(--green)";ok.style.borderRadius="var(--r)";ok.style.padding="8px 12px";
     ok.innerText="✔ Промокод застосовано: -"+discount+"%";toast("🎉 Знижка "+discount+"%!");renderCart();
   } else {
     discount=0;ok.style.display="block";ok.style.background="rgba(255,69,58,.12)";ok.style.color="var(--red)";ok.style.borderRadius="var(--r)";ok.style.padding="8px 12px";
