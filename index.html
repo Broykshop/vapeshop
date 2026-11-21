@@ -2440,7 +2440,7 @@ localStorage.setItem('lastOrder', Date.now());
     if(didRespond)return;
     didRespond=true;clearTimeout(tgTimeout);resetBtn();
     if(d.ok){onSuccess();}
-    else{console.error("TG Bot error:",d);onFail();}
+    else{console.error("TG Bot error:",d);alert("Помилка: "+JSON.stringify(d));onFail();}
   }).catch(err=>{
     if(didRespond)return;
     didRespond=true;clearTimeout(tgTimeout);resetBtn();
