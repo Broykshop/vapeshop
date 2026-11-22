@@ -1643,3 +1643,10 @@ const P=[
   ]
  }
 ];
+window.addEventListener('error',function(e){
+  var t=e.target;
+  if(t&&t.tagName==='IMG'&&t.src.indexOf('/img/')>-1&&t.src.indexOf('placeholder')<0){
+    t.src='/img/placeholder.svg';
+    setTimeout(function(){t.style.opacity=1},0);
+  }
+},true);
