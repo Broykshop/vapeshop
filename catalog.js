@@ -962,13 +962,13 @@ const P=[
  },
  {
   "id": 122,
-  "n": "Chaser Beat Чері пульс 30 мл",
+  "n": "Chaser Beat Чері пульс 12 мл",
   "p": 280,
   "cat": "juice",
   "hit": false,
   "isNew": false,
-  "img": "/img/chaser-beat-cheri-puls-30-ml.jpg",
-  "desc": "Рідина Chaser Beat Чері пульс 30 мл для POD-систем.",
+  "img": "/img/chaser-beat-cheri-puls-12-ml.jpg",
+  "desc": "Рідина Chaser Beat Чері пульс 12 мл для POD-систем.",
   "specs": [
    [
     "🏷️",
@@ -983,19 +983,19 @@ const P=[
    [
     "💧",
     "Об’єм",
-    "30 мл"
+    "12 мл"
    ]
   ]
  },
  {
   "id": 123,
-  "n": "Chaser Beat Грейп техно 30 мл",
+  "n": "Chaser Beat Грейп техно 12 мл",
   "p": 280,
   "cat": "juice",
   "hit": false,
   "isNew": false,
-  "img": "/img/chaser-beat-hreip-tekhno-30-ml.jpg",
-  "desc": "Рідина Chaser Beat Грейп техно 30 мл для POD-систем.",
+  "img": "/img/chaser-beat-hreip-tekhno-12-ml.jpg",
+  "desc": "Рідина Chaser Beat Грейп техно 12 мл для POD-систем.",
   "specs": [
    [
     "🏷️",
@@ -1010,19 +1010,19 @@ const P=[
    [
     "💧",
     "Об’єм",
-    "30 мл"
+    "12 мл"
    ]
   ]
  },
  {
   "id": 124,
-  "n": "Chaser Beat Яблуко лемонад 30 мл",
+  "n": "Chaser Beat Яблуко лемонад 12 мл",
   "p": 280,
   "cat": "juice",
   "hit": false,
   "isNew": false,
-  "img": "/img/chaser-beat-iabluko-lemonad-30-ml.jpg",
-  "desc": "Рідина Chaser Beat Яблуко лемонад 30 мл для POD-систем.",
+  "img": "/img/chaser-beat-iabluko-lemonad-12-ml.jpg",
+  "desc": "Рідина Chaser Beat Яблуко лемонад 12 мл для POD-систем.",
   "specs": [
    [
     "🏷️",
@@ -1037,19 +1037,19 @@ const P=[
    [
     "💧",
     "Об’єм",
-    "30 мл"
+    "12 мл"
    ]
   ]
  },
  {
   "id": 125,
-  "n": "Chaser Beat Айс пич флоу 30 мл",
+  "n": "Chaser Beat Айс пич флоу 12 мл",
   "p": 280,
   "cat": "juice",
   "hit": false,
   "isNew": false,
-  "img": "/img/chaser-beat-ais-pych-flou-30-ml.jpg",
-  "desc": "Рідина Chaser Beat Айс пич флоу 30 мл для POD-систем.",
+  "img": "/img/chaser-beat-ais-pych-flou-12-ml.jpg",
+  "desc": "Рідина Chaser Beat Айс пич флоу 12 мл для POD-систем.",
   "specs": [
    [
     "🏷️",
@@ -1064,19 +1064,19 @@ const P=[
    [
     "💧",
     "Об’єм",
-    "30 мл"
+    "12 мл"
    ]
   ]
  },
  {
   "id": 126,
-  "n": "Chaser Christmas Пупкін лате 30 мл",
+  "n": "Chaser Christmas Пупкін лате 12 мл",
   "p": 280,
   "cat": "juice",
   "hit": false,
   "isNew": false,
-  "img": "/img/chaser-christmas-pupkin-late-30-ml.jpg",
-  "desc": "Рідина Chaser Christmas Пупкін лате 30 мл для POD-систем.",
+  "img": "/img/chaser-christmas-pupkin-late-12-ml.jpg",
+  "desc": "Рідина Chaser Christmas Пупкін лате 12 мл для POD-систем.",
   "specs": [
    [
     "🏷️",
@@ -1091,7 +1091,7 @@ const P=[
    [
     "💧",
     "Об’єм",
-    "30 мл"
+    "12 мл"
    ]
   ]
  },
@@ -1340,13 +1340,13 @@ const P=[
  },
  {
   "id": 136,
-  "n": "Chaser Black Блек бері соур рас бері 30 мл",
+  "n": "Chaser Black Blackberry Sour Raspberry 30 мл",
   "p": 280,
   "cat": "juice",
   "hit": false,
   "isNew": false,
-  "img": "/img/chaser-black-blek-beri-sour-ras-beri-30-ml.jpg",
-  "desc": "Рідина Chaser Black Блек бері соур рас бері 30 мл для POD-систем.",
+  "img": "/img/chaser-black-blackberry-sour-raspberry-30-ml.jpg",
+  "desc": "Рідина Chaser Black Blackberry Sour Raspberry 30 мл для POD-систем.",
   "specs": [
    [
     "🏷️",
@@ -1356,7 +1356,7 @@ const P=[
    [
     "🍓",
     "Смак",
-    "Блек бері соур рас бері"
+    "Blackberry Sour Raspberry"
    ],
    [
     "💧",
@@ -1475,84 +1475,99 @@ const P=[
  },
  {
   "id": 140,
-  "n": "Elf Liq Blueberry",
+  "n": "ELFLIQ Blueberry",
   "p": 350,
   "cat": "juice",
   "hit": false,
   "isNew": false,
-  "img": "/img/elf-liq-blueberry.jpg",
-  "desc": "Рідина Elf Liq Blueberry.",
+  "img": "/img/elfliq-blueberry.jpg",
+  "desc": "Рідина ELFLIQ Blueberry.",
   "specs": [
    [
     "🏷️",
     "Бренд",
-    "Elf Liq"
+    "ELFLIQ"
    ],
    [
     "🍓",
     "Смак",
     "Blueberry"
+   ],
+   [
+    "💧",
+    "Об’єм",
+    "30 мл"
    ]
   ]
  },
  {
   "id": 141,
-  "n": "Elf Liq ElfBull Ice",
+  "n": "ELFLIQ ElfBull Ice",
   "p": 350,
   "cat": "juice",
   "hit": false,
   "isNew": false,
-  "img": "/img/elf-liq-elfbull-ice.jpg",
-  "desc": "Рідина Elf Liq ElfBull Ice.",
+  "img": "/img/elfliq-elfbull-ice.jpg",
+  "desc": "Рідина ELFLIQ ElfBull Ice.",
   "specs": [
    [
     "🏷️",
     "Бренд",
-    "Elf Liq"
+    "ELFLIQ"
    ],
    [
     "🍓",
     "Смак",
     "ElfBull Ice"
+   ],
+   [
+    "💧",
+    "Об’єм",
+    "30 мл"
    ]
   ]
  },
  {
   "id": 142,
-  "n": "Elf Liq Grape Cherry",
+  "n": "ELFLIQ Grape Cherry",
   "p": 350,
   "cat": "juice",
   "hit": false,
   "isNew": false,
-  "img": "/img/elf-liq-grape-cherry.jpg",
-  "desc": "Рідина Elf Liq Grape Cherry.",
+  "img": "/img/elfliq-grape-cherry.jpg",
+  "desc": "Рідина ELFLIQ Grape Cherry.",
   "specs": [
    [
     "🏷️",
     "Бренд",
-    "Elf Liq"
+    "ELFLIQ"
    ],
    [
     "🍓",
     "Смак",
     "Grape Cherry"
+   ],
+   [
+    "💧",
+    "Об’єм",
+    "30 мл"
    ]
   ]
  },
  {
   "id": 143,
-  "n": "Elf Liq Watermelon Sour Peach",
+  "n": "ELFLIQ Watermelon Sour Peach",
   "p": 350,
   "cat": "juice",
   "hit": false,
   "isNew": false,
-  "img": "/img/elf-liq-watermelon-sour-peach.jpg",
-  "desc": "Рідина Elf Liq Watermelon Sour Peach.",
+  "img": "/img/elfliq-watermelon-sour-peach.jpg",
+  "desc": "Рідина ELFLIQ Watermelon Sour Peach.",
   "specs": [
    [
     "🏷️",
     "Бренд",
-    "Elf Liq"
+    "ELFLIQ"
    ],
    [
     "🍓",
@@ -1643,10 +1658,3 @@ const P=[
   ]
  }
 ];
-window.addEventListener('error',function(e){
-  var t=e.target;
-  if(t&&t.tagName==='IMG'&&t.src.indexOf('/img/')>-1&&t.src.indexOf('placeholder')<0){
-    t.src='/img/placeholder.svg';
-    setTimeout(function(){t.style.opacity=1},0);
-  }
-},true);
