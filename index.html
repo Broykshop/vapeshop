@@ -1330,6 +1330,11 @@ a[href*="t.me"][style*="position:fixed"]{
   <button class="back-btn" onclick="goHome()">‹ Назад</button>
   <div class="fs-title">Поди</div>
   <div class="subcats">
+    <div class="subcat" onclick="openCat('xros6','Xros 6 Mini')">
+  <div><div class="t1">Xros 6 Mini</div><div class="t2">900 грн • 1600mAh • Новинка</div></div>
+  <img src="" onerror="this.style.display='none'">
+  <span class="subcat-arr">›</span>
+</div>
     <div class="subcat" onclick="openCat('xros5','Xros 5 Mini')">
       <div><div class="t1">Xros 5 Mini</div><div class="t2">від 810 грн • 1500mAh</div></div>
       <span class="subcat-arr">›</span>
@@ -1910,7 +1915,7 @@ function setSideNav(name){
 function goHome(){hideAll();document.getElementById("home").style.display="block";setNav("home");setSideNav("home");scrollTo(0,0);closeMenu();}
 function goPods(){hideAll();let e=document.getElementById("pods");e.style.display="block";setSideNav("pods");scrollTo(0,0);closeMenu();}
 function openCat(cat,title){
-  curCat=cat;curF="all";fromPods=["xros5","xros4","xrosmini","xros5nano","xros3mini","xrospro","xros5full","vincise"].includes(cat);
+  curCat=cat;curF="all";fromPods=["xros 6","xros5","xros4","xrosmini","xros5nano","xros3mini","xrospro","xros5full","vincise"].includes(cat);
   hideAll();let el=document.getElementById("products");el.style.display="block";
   document.getElementById("prod-title").innerText=title;
   document.getElementById("sinput").value="";
